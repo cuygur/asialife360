@@ -14,14 +14,17 @@ import { heroContent } from "../data/homeContent";
 // Assets
 import heroDubai from "../assets/hero-dubai.png";
 import heroBali from "../assets/hero-bali.png";
+import { useNavigate } from "react-router-dom";
 import { useModals } from "../context/ModalContext";
 
 export const Home: React.FC = () => {
   const { openBooking, openDownload } = useModals();
+  const navigate = useNavigate();
 
   return (
     <Layout>
       {/* Hero Section */}
+
       <section className="hero-section">
         {/* Split Background */}
         <div className="hero-bg-split">
@@ -115,10 +118,7 @@ export const Home: React.FC = () => {
                 variant="outline"
                 size="lg"
                 className="btn-hero-outline"
-                onClick={() => {
-                  const dest = document.querySelector(".section-destinations");
-                  dest?.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={() => navigate("/destinations")}
               >
                 {heroContent.buttons.secondary}
               </Button>
