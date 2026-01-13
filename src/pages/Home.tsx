@@ -72,7 +72,7 @@ export const Home: React.FC = () => {
             style={{
               position: "absolute",
               inset: 0,
-              background: "rgba(0,0,0,0.2)",
+              background: "rgba(0,0,0,0.4)",
             }}
           ></div>
         </div>
@@ -107,6 +107,7 @@ export const Home: React.FC = () => {
                 marginBottom: "1.5rem",
                 lineHeight: 1.1,
                 textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+                color: "white",
               }}
             >
               Design Your Ideal Life. <br />
