@@ -30,13 +30,18 @@ export const Destinations: React.FC = () => {
   return (
     <section className="section section-destinations">
       <div className="container">
-        <div className="section-header">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="section-header"
+        >
           <h2 className="section-title">Choose Your New Home</h2>
           <p className="section-description">
             Every destination offers a unique advantage. Which one suits your
             vision?
           </p>
-        </div>
+        </motion.div>
 
         <div className="destinations-grid">
           {destinations.map((dest, i) => (

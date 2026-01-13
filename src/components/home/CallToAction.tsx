@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Button } from "../common/Button";
 import { ctaContent } from "../../data/homeContent";
 
@@ -17,21 +18,28 @@ export const CallToAction: React.FC<CallToActionProps> = ({
       <div className="cta-bg-glow"></div>
 
       <div className="container cta-container">
-        <h2 className="cta-title">{ctaContent.title}</h2>
-        <p className="cta-description">{ctaContent.description}</p>
-        <div className="cta-actions">
-          <Button variant="accent" size="lg" onClick={onBookClick}>
-            {ctaContent.buttonLabel}
-          </Button>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <h2 className="cta-title">{ctaContent.title}</h2>
+          <p className="cta-description">{ctaContent.description}</p>
+          <div className="cta-actions">
+            <Button variant="accent" size="lg" onClick={onBookClick}>
+              {ctaContent.buttonLabel}
+            </Button>
 
-          <div className="cta-subtext">{ctaContent.subText}</div>
+            <div className="cta-subtext">{ctaContent.subText}</div>
 
-          <div className="cta-link-wrapper">
-            <button className="cta-link-btn" onClick={onDownloadClick}>
-              {ctaContent.linkText}
-            </button>
+            <div className="cta-link-wrapper">
+              <button className="cta-link-btn" onClick={onDownloadClick}>
+                {ctaContent.linkText}
+              </button>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -18,7 +18,12 @@ export const Segmentation: React.FC<SegmentationProps> = ({ onBookClick }) => {
   return (
     <section className="section section-segmentation">
       <div className="container">
-        <div className="section-header">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="section-header"
+        >
           <h2 className="section-title">{segmentationContent.title}</h2>
           <div className="tab-container">
             {segmentationContent.tabs.map((tab) => (
@@ -36,7 +41,7 @@ export const Segmentation: React.FC<SegmentationProps> = ({ onBookClick }) => {
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         <div className="segmentation-content">
           <AnimatePresence mode="wait">

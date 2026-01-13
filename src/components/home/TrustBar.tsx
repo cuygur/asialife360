@@ -21,14 +21,28 @@ export const TrustBar: React.FC = () => {
   return (
     <section className="trust-bar-section">
       <div className="container">
-        <div className="trust-bar-grid">
+        <motion.div
+          className="trust-bar-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+        >
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+              }}
               className="trust-stat-item"
             >
               <div className="trust-stat-icon">{stat.icon}</div>
@@ -38,7 +52,7 @@ export const TrustBar: React.FC = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

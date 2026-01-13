@@ -7,28 +7,55 @@ export const WhyUs: React.FC = () => {
   return (
     <section className="section section-why-us">
       <div className="container">
-        <div className="section-header">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="section-header"
+        >
           <h2 className="section-title">{whyUsContent.title}</h2>
           <p className="section-description">{whyUsContent.description}</p>
-        </div>
+        </motion.div>
 
         <div className="comparison-table-container">
-          <motion.table
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="comparison-table"
-          >
+          <table className="comparison-table">
             <thead>
-              <tr className="table-header-row">
+              <motion.tr
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="table-header-row"
+              >
                 <th className="feature-col">Feature</th>
                 <th className="diy-col">The Hard Way (DIY)</th>
                 <th className="us-col">The AsiaLife360 Way</th>
-              </tr>
+              </motion.tr>
             </thead>
-            <tbody>
+            <motion.tbody
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.15 },
+                },
+              }}
+            >
               {whyUsContent.comparison.map((row, i) => (
-                <tr key={i} className="table-body-row">
+                <motion.tr
+                  key={i}
+                  variants={{
+                    hidden: { opacity: 0, x: -10 },
+                    visible: {
+                      opacity: 1,
+                      x: 0,
+                      transition: { duration: 0.5 },
+                    },
+                  }}
+                  className="table-body-row"
+                >
                   <td className="feature-cell">{row.feature}</td>
                   <td className="diy-cell">
                     <div className="diy-content">
@@ -42,10 +69,10 @@ export const WhyUs: React.FC = () => {
                       <span>{row.us}</span>
                     </div>
                   </td>
-                </tr>
+                </motion.tr>
               ))}
-            </tbody>
-          </motion.table>
+            </motion.tbody>
+          </table>
         </div>
       </div>
     </section>
