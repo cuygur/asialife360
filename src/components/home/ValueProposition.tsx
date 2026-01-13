@@ -1,101 +1,46 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, XCircle } from "lucide-react";
+import { valuePropsContent } from "../../data/homeContent";
 
 export const ValueProposition: React.FC = () => {
   return (
-    <section className="section" style={{ backgroundColor: "#F8FAFC" }}>
+    <section className="section section-value-prop">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          style={{
-            textAlign: "center",
-            maxWidth: "800px",
-            margin: "0 auto 4rem auto",
-          }}
+          viewport={{ once: true }}
+          className="section-header"
         >
-          <h2 style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }}>
-            Why Just Survive When You Can Thrive?
-          </h2>
-          <p style={{ fontSize: "1.125rem", color: "#64748b" }}>
-            The world has changed. You no longer need to be tethered to a
-            high-cost, high-stress environment to be successful. We specialize
-            in **Geographic Arbitrage**.
+          <h2 className="section-title">{valuePropsContent.title}</h2>
+          <p className="section-description">
+            {valuePropsContent.description.split("**")[0]}
+            <span className="text-accent-bold">
+              {valuePropsContent.description.split("**")[1]}
+            </span>
+            {valuePropsContent.description.split("**")[2]}
           </p>
         </motion.div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "2rem",
-          }}
-        >
+        <div className="value-prop-grid">
           {/* Old Life */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            style={{
-              background: "white",
-              padding: "2.5rem",
-              borderRadius: "1rem",
-              boxShadow: "0 4px 6px -1px rgba(0,0,0,0.05)",
-              border: "1px solid var(--color-border)",
-            }}
+            viewport={{ once: true }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            className="value-card card-old"
           >
-            <h3
-              style={{
-                fontSize: "1.5rem",
-                marginBottom: "1.5rem",
-                color: "#64748b",
-              }}
-            >
-              The Old Reality
+            <h3 className="card-title text-muted">
+              {valuePropsContent.realities.old.title}
             </h3>
-            <ul
-              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-            >
-              <li
-                style={{
-                  display: "flex",
-                  gap: "0.75rem",
-                  alignItems: "center",
-                  color: "#64748b",
-                }}
-              >
-                <XCircle size={20} color="#ef4444" /> High Cost of Living
-              </li>
-              <li
-                style={{
-                  display: "flex",
-                  gap: "0.75rem",
-                  alignItems: "center",
-                  color: "#64748b",
-                }}
-              >
-                <XCircle size={20} color="#ef4444" /> High Taxes (30-50%)
-              </li>
-              <li
-                style={{
-                  display: "flex",
-                  gap: "0.75rem",
-                  alignItems: "center",
-                  color: "#64748b",
-                }}
-              >
-                <XCircle size={20} color="#ef4444" /> Stress & Burnout
-              </li>
-              <li
-                style={{
-                  display: "flex",
-                  gap: "0.75rem",
-                  alignItems: "center",
-                  color: "#64748b",
-                }}
-              >
-                <XCircle size={20} color="#ef4444" /> Cold Weather & Grey Skies
-              </li>
+            <ul className="card-list">
+              {valuePropsContent.realities.old.items.map((item, i) => (
+                <li key={i} className="card-list-item text-muted">
+                  <XCircle size={20} className="icon-error" /> {item}
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -103,67 +48,23 @@ export const ValueProposition: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            style={{
-              background:
-                "linear-gradient(135deg, var(--color-primary), var(--color-secondary))",
-              padding: "2.5rem",
-              borderRadius: "1rem",
-              boxShadow: "0 20px 25px -5px rgba(0,0,0,0.1)",
-              color: "white",
+            viewport={{ once: true }}
+            whileHover={{
+              scale: 1.02,
+              boxShadow: "0 25px 50px -12px rgba(15, 23, 42, 0.25)",
+              transition: { duration: 0.3 },
             }}
+            className="value-card card-new"
           >
-            <h3
-              style={{
-                fontSize: "1.5rem",
-                marginBottom: "1.5rem",
-                color: "white",
-              }}
-            >
-              The AsiaLife360 Reality
+            <h3 className="card-title text-white">
+              {valuePropsContent.realities.new.title}
             </h3>
-            <ul
-              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-            >
-              <li
-                style={{
-                  display: "flex",
-                  gap: "0.75rem",
-                  alignItems: "center",
-                }}
-              >
-                <CheckCircle2 size={20} color="var(--color-accent)" /> Luxury
-                for Less
-              </li>
-              <li
-                style={{
-                  display: "flex",
-                  gap: "0.75rem",
-                  alignItems: "center",
-                }}
-              >
-                <CheckCircle2 size={20} color="var(--color-accent)" /> 0% to Low
-                Tax
-              </li>
-              <li
-                style={{
-                  display: "flex",
-                  gap: "0.75rem",
-                  alignItems: "center",
-                }}
-              >
-                <CheckCircle2 size={20} color="var(--color-accent)" /> Wellness
-                & Balance
-              </li>
-              <li
-                style={{
-                  display: "flex",
-                  gap: "0.75rem",
-                  alignItems: "center",
-                }}
-              >
-                <CheckCircle2 size={20} color="var(--color-accent)" />{" "}
-                Year-round Sun
-              </li>
+            <ul className="card-list">
+              {valuePropsContent.realities.new.items.map((item, i) => (
+                <li key={i} className="card-list-item text-white">
+                  <CheckCircle2 size={20} className="icon-accent" /> {item}
+                </li>
+              ))}
             </ul>
           </motion.div>
         </div>

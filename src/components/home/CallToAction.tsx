@@ -1,77 +1,25 @@
 import React from "react";
 import { Button } from "../common/Button";
+import { ctaContent } from "../../data/homeContent";
 
 export const CallToAction: React.FC = () => {
   return (
-    <section
-      className="section"
-      style={{
-        backgroundColor: "var(--color-primary)",
-        color: "white",
-        overflow: "hidden",
-        position: "relative",
-      }}
-    >
+    <section className="section section-cta">
       {/* Background Accent */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
-          background: "var(--color-accent)",
-          filter: "blur(150px)",
-          opacity: 0.2,
-          transform: "translate(50%, -50%)",
-        }}
-      ></div>
+      <div className="cta-bg-glow"></div>
 
-      <div
-        className="container"
-        style={{ position: "relative", zIndex: 10, textAlign: "center" }}
-      >
-        <h2
-          style={{ fontSize: "3rem", marginBottom: "1.5rem", color: "white" }}
-        >
-          Stop Dreaming. Start Living.
-        </h2>
-        <p
-          style={{
-            fontSize: "1.25rem",
-            opacity: 0.9,
-            maxWidth: "700px",
-            margin: "0 auto 3rem auto",
-          }}
-        >
-          The life you want is waiting. The only thing standing between you and
-          your upgrade is the logistics. Let us handle those.
-        </p>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "1rem",
-            alignItems: "center",
-          }}
-        >
+      <div className="container cta-container">
+        <h2 className="cta-title">{ctaContent.title}</h2>
+        <p className="cta-description">{ctaContent.description}</p>
+        <div className="cta-actions">
           <Button variant="accent" size="lg">
-            Book Your Free Strategy Call
+            {ctaContent.buttonLabel}
           </Button>
-          <div style={{ fontSize: "0.875rem", opacity: 0.8 }}>
-            Get a custom relocation roadmap in 30 minutes.
-          </div>
+          <div className="cta-subtext">{ctaContent.subText}</div>
 
-          <div style={{ marginTop: "2rem" }}>
-            <a
-              href="#"
-              style={{
-                textDecoration: "underline",
-                color: "var(--color-accent)",
-              }}
-            >
-              Or Download 2026 Relocation Guide
+          <div className="cta-link-wrapper">
+            <a href="#" className="cta-link">
+              {ctaContent.linkText}
             </a>
           </div>
         </div>

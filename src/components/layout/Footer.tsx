@@ -1,145 +1,60 @@
 import React from "react";
 import { Globe, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { navLinks, footerContent } from "../../data/navigation";
 
 export const Footer: React.FC = () => {
   return (
-    <footer
-      style={{
-        backgroundColor: "var(--color-primary)",
-        color: "white",
-        padding: "4rem 0 2rem 0",
-      }}
-    >
-      <div className="container">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-            gap: "3rem",
-            marginBottom: "3rem",
-          }}
-        >
+    <footer className="footer">
+      <div className="container footer-container">
+        <div className="footer-grid">
           {/* Brand Col */}
-          <div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                marginBottom: "1.5rem",
-                fontSize: "1.5rem",
-                fontWeight: 700,
-              }}
-            >
-              <Globe color="var(--color-accent)" size={28} />
-              AsiaLife360
-            </div>
-            <p
-              style={{
-                color: "#94a3b8",
-                lineHeight: 1.6,
-                marginBottom: "1.5rem",
-              }}
-            >
-              The safe bridge to your new world. We facilitate seamless
-              relocations for professionals and retirees moving to the UAE and
-              Southeast Asia.
+          <div className="footer-brand-col">
+            <Link to="/" className="footer-logo">
+              <Globe className="logo-icon" size={28} />
+              <span>AsiaLife360</span>
+            </Link>
+            <p className="footer-description">
+              {footerContent.brandDescription}
             </p>
           </div>
 
           {/* Links Col */}
-          <div>
-            <h4
-              style={{
-                color: "white",
-                marginBottom: "1.5rem",
-                fontSize: "1.1rem",
-              }}
-            >
-              Explore
-            </h4>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.75rem",
-              }}
-            >
-              <Link to="/" style={{ color: "#94a3b8" }}>
+          <div className="footer-links-col">
+            <h4 className="footer-heading">Explore</h4>
+            <div className="footer-nav-links">
+              <Link to="/" className="footer-link">
                 Home
               </Link>
-              <Link to="/destinations" style={{ color: "#94a3b8" }}>
-                Destinations
-              </Link>
-              <Link to="/services" style={{ color: "#94a3b8" }}>
-                Services
-              </Link>
-              <Link to="/about" style={{ color: "#94a3b8" }}>
-                About Us
-              </Link>
+              {navLinks.map((link) => (
+                <Link key={link.href} to={link.href} className="footer-link">
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
           {/* Contact Col */}
-          <div>
-            <h4
-              style={{
-                color: "white",
-                marginBottom: "1.5rem",
-                fontSize: "1.1rem",
-              }}
-            >
-              Contact
-            </h4>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.75rem",
-                  color: "#94a3b8",
-                }}
-              >
+          <div className="footer-contact-col">
+            <h4 className="footer-heading">Contact</h4>
+            <div className="footer-contact-info">
+              <div className="contact-item">
                 <Mail size={18} />
-                <span>hello@asialife360.com</span>
+                <span>{footerContent.contact.email}</span>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.75rem",
-                  color: "#94a3b8",
-                }}
-              >
+              <div className="contact-item">
                 <Phone size={18} />
-                <span>+971 4 123 4567</span>
+                <span>{footerContent.contact.phone}</span>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.75rem",
-                  color: "#94a3b8",
-                }}
-              >
+              <div className="contact-item">
                 <MapPin size={18} />
-                <span>Dubai Digital Park, UAE</span>
+                <span>{footerContent.contact.address}</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div
-          style={{
-            borderTop: "1px solid #334155",
-            paddingTop: "2rem",
-            textAlign: "center",
-            color: "#64748b",
-          }}
-        >
+        <div className="footer-bottom">
           <p>
             &copy; {new Date().getFullYear()} AsiaLife360. All rights reserved.
           </p>
