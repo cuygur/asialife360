@@ -2,11 +2,14 @@
 
 :root {
   /* Brand Colors */
-  --color-primary: #0F172A; /* Deep Ocean */
-  --color-secondary: #1E293B; /* Lighter Deep Blue */
-  --color-accent: #D4AF37; /* Gold/Sand */
+  --color-primary: #0F172A;
+  /* Deep Ocean */
+  --color-secondary: #1E293B;
+  /* Lighter Deep Blue */
+  --color-accent: #D4AF37;
+  /* Gold/Sand */
   --color-accent-hover: #B5952F;
-  
+
   /* Neutral Colors */
   --color-bg: #F8FAFC;
   --color-text: #334155;
@@ -29,15 +32,23 @@
   padding: 0;
 }
 
+html,
 body {
   font-family: var(--font-body);
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   color: var(--color-primary);
   line-height: 1.2;
@@ -53,6 +64,7 @@ a {
   max-width: var(--spacing-container);
   margin: 0 auto;
   padding: 0 1.5rem;
+  width: 100%;
 }
 
 .section {

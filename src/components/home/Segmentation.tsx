@@ -20,6 +20,8 @@ export const Segmentation: React.FC = () => {
               backgroundColor: "#F1F5F9",
               borderRadius: "0.5rem",
               gap: "0.5rem",
+              flexWrap: "wrap",
+              justifyContent: "center",
             }}
           >
             <button

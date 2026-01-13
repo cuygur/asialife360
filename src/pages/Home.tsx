@@ -20,9 +20,10 @@ export const Home: React.FC = () => {
       <section
         style={{
           position: "relative",
-          height: "calc(100vh - 80px)",
+          minHeight: "calc(100vh - 80px)",
           overflow: "hidden",
           display: "flex",
+          padding: "4rem 0",
         }}
       >
         {/* Split Background */}
@@ -34,8 +35,10 @@ export const Home: React.FC = () => {
             width: "100%",
             height: "100%",
             display: "flex",
+            flexDirection: "row",
             zIndex: -1,
           }}
+          className="hero-bg-split"
         >
           <div style={{ flex: 1, position: "relative" }}>
             <img
@@ -48,7 +51,7 @@ export const Home: React.FC = () => {
                 position: "absolute",
                 inset: 0,
                 background:
-                  "linear-gradient(to right, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.1))",
+                  "linear-gradient(to right, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.3))",
               }}
             ></div>
           </div>
@@ -63,7 +66,7 @@ export const Home: React.FC = () => {
                 position: "absolute",
                 inset: 0,
                 background:
-                  "linear-gradient(to left, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.1))",
+                  "linear-gradient(to left, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.3))",
               }}
             ></div>
           </div>
@@ -72,7 +75,7 @@ export const Home: React.FC = () => {
             style={{
               position: "absolute",
               inset: 0,
-              background: "rgba(0,0,0,0.4)",
+              background: "rgba(0,0,0,0.5)",
             }}
           ></div>
         </div>
@@ -86,7 +89,7 @@ export const Home: React.FC = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            height: "100%",
+            width: "100%",
           }}
         >
           <motion.div
@@ -101,6 +104,7 @@ export const Home: React.FC = () => {
             }}
           >
             <h1
+              className="hero-title"
               style={{
                 fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
                 fontWeight: 700,
@@ -117,7 +121,7 @@ export const Home: React.FC = () => {
             </h1>
             <p
               style={{
-                fontSize: "1.25rem",
+                fontSize: "clamp(1.1rem, 2vw, 1.25rem)",
                 marginBottom: "2.5rem",
                 opacity: 0.95,
                 maxWidth: "650px",
@@ -154,6 +158,16 @@ export const Home: React.FC = () => {
             </div>
           </motion.div>
         </div>
+        <style>{`
+          @media (max-width: 768px) {
+            .hero-bg-split {
+              flex-direction: column !important;
+            }
+            .hero-title {
+              font-size: 2.8rem !important;
+            }
+          }
+        `}</style>
       </section>
 
       <TrustBar />
