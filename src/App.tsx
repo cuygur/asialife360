@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { ModalProvider } from "./context/ModalContext";
+import { DestinationDetail } from "./pages/DestinationDetail";
 
 function App() {
   return (
@@ -8,15 +9,16 @@ function App() {
       <ModalProvider>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* Add more routes as pages are created */}
+          <Route path="/destinations/:id" element={<DestinationDetail />} />
           <Route
             path="/destinations"
             element={
               <div className="container section">
-                Destinations Page Coming Soon
+                Destinations Overview Coming Soon
               </div>
             }
           />
+
           <Route
             path="/services"
             element={

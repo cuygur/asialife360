@@ -13,6 +13,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   onClose,
 }) => {
   const [step, setStep] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,8 +23,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate booking
-    setStep(3);
+    setIsLoading(true);
+
+    // Simulate network delay
+    setTimeout(() => {
+      setIsLoading(false);
+      setStep(3);
+    }, 1500);
   };
 
   return (
@@ -115,8 +121,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   key={time}
                   className="time-slot-btn"
                   onClick={handleSubmit}
+                  disabled={isLoading}
                 >
-                  {time}
+                  {isLoading && time === "9:00 AM" ? "Booking..." : time}
                 </button>
               ))}
             </div>

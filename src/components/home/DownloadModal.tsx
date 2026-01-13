@@ -13,6 +13,7 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
   onClose,
 }) => {
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,8 +21,13 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
 
   const handleDownload = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
     // Simulate generation/download
-    setStep(2);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setStep(2);
+    }, 1200);
   };
 
   return (
@@ -83,9 +89,16 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
               size="lg"
               className="w-full mt-md"
               type="submit"
+              disabled={isSubmitting}
             >
-              <Download size={18} style={{ marginRight: "0.5rem" }} /> Get
-              Instant Access
+              {isSubmitting ? (
+                "Sending..."
+              ) : (
+                <>
+                  <Download size={18} style={{ marginRight: "0.5rem" }} /> Get
+                  Instant Access
+                </>
+              )}
             </Button>
           </form>
           <p className="privacy-note">

@@ -70,22 +70,75 @@ export const segmentationContent = {
 
 export const destinationsContent = [
   {
-    id: "dubai",
+    id: "uae",
     name: "Dubai, UAE",
     description: "The global hub for tax-free growth and luxury living.",
     tags: ["0% Tax", "Business Hub", "Luxury"],
+    heroImage: "hero-dubai.png",
+    stat: "0% Income Tax",
+    highlights: [
+      "No income or capital gains tax",
+      "World-class infrastructure and safety",
+      "Golden Visa residency for 10 years",
+      "Global travel hub with 2 major airports",
+    ],
+    lifestyle:
+      "Fast-paced, high-tech, and incredibly diverse. Dubai offers everything from desert adventures to world-leading dining and entertainment.",
+    costOfLiving: "High, but offset by zero taxes and high earning potential.",
   },
   {
-    id: "bali",
+    id: "indonesia",
     name: "Bali, Indonesia",
     description: "Tropical paradise meets a thriving nomad community.",
     tags: ["Wellness", "Community", "Nature"],
+    heroImage: "hero-bali.png",
+    stat: "Top Nomad Spot",
+    highlights: [
+      "Lower cost of high-end living",
+      "Vibrant creative and startup culture",
+      "Breathtaking landscapes and surf",
+      "Rich spiritual and cultural heritage",
+    ],
+    lifestyle:
+      "Balanced, nature-focused, and deeply social. Ideal for creators, spiritual seekers, and remote entrepreneurs looking for community.",
+    costOfLiving:
+      "Very affordable for Western standards, especially for housing and services.",
   },
   {
-    id: "bangkok",
+    id: "thailand",
     name: "Bangkok, Thailand",
     description: "High-octane city life with world-class amenities.",
     tags: ["Food", "Healthcare", "Value"],
+    heroImage: "hero-bangkok.png",
+    stat: "Best Value Luxury",
+    highlights: [
+      "JCI-accredited world-class healthcare",
+      "Food paradise from street to Michelin",
+      "Ultra-modern condos at incredible value",
+      "New LTR visa for long-term residency",
+    ],
+    lifestyle:
+      "Energetic, convenient, and hospitality-first. Bangkok is a city that never sleeps, offering a perfect blend of tradition and modernity.",
+    costOfLiving:
+      "Moderate. Exceptional value for high-end real estate and medical care.",
+  },
+  {
+    id: "philippines",
+    name: "The Philippines",
+    description: "Warm culture and English-speaking convenience.",
+    tags: ["English", "Beaches", "Hospitality"],
+    heroImage: "hero-philippines.png",
+    stat: "Most Accessible",
+    highlights: [
+      "Widespread English proficiency",
+      "Over 7,000 stunning islands to explore",
+      "Extremely friendly and welcoming locals",
+      "Developing business districts in BGC",
+    ],
+    lifestyle:
+      "Relaxed, ocean-centric, and family-oriented. Great for those who want a westernized communication experience in a tropical setting.",
+    costOfLiving:
+      "Low. One of the best places in Asia for high purchasing power.",
   },
 ];
 
