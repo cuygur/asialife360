@@ -1,4 +1,9 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  type ReactNode,
+} from "react";
 import { BookingModal } from "../components/home/BookingModal";
 import { DownloadModal } from "../components/home/DownloadModal";
 
