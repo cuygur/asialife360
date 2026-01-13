@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { ModalProvider } from "./context/ModalContext";
 import { DestinationDetail } from "./pages/DestinationDetail";
+import { DestinationsOverview } from "./pages/DestinationsOverview";
 
 function App() {
   return (
@@ -10,14 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/destinations/:id" element={<DestinationDetail />} />
-          <Route
-            path="/destinations"
-            element={
-              <div className="container section">
-                Destinations Overview Coming Soon
-              </div>
-            }
-          />
+          <Route path="/destinations" element={<DestinationsOverview />} />
 
           <Route
             path="/services"

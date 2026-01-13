@@ -16,11 +16,14 @@ import { useModals } from "../context/ModalContext";
 // Assets (Using existing ones where possible, others can be generated or use external)
 import heroDubai from "../assets/hero-dubai.png";
 import heroBali from "../assets/hero-bali.png";
+import heroBangkok from "../assets/hero-bangkok.png";
+import heroPhilippines from "../assets/hero-philippines.png";
 
 const imageMap: Record<string, string> = {
   "hero-dubai.png": heroDubai,
   "hero-bali.png": heroBali,
-  // For others, we'll use a placeholder or the Bali one for now until fixed
+  "hero-bangkok.png": heroBangkok,
+  "hero-philippines.png": heroPhilippines,
 };
 
 export const DestinationDetail: React.FC = () => {
