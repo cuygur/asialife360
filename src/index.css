@@ -116,6 +116,12 @@ a {
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Utilities */
 .container {
   max-width: var(--spacing-container);

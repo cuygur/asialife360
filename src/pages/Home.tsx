@@ -23,13 +23,28 @@ export const Home: React.FC = () => {
         {/* Split Background */}
         <div className="hero-bg-split">
           <div className="hero-bg-cell">
-            <img src={heroDubai} alt="Dubai" className="hero-image" />
+            <img
+              src={heroDubai}
+              alt="Luxury skyline and modern architecture in Dubai, UAE"
+              className="hero-image"
+              loading="eager"
+              fetchPriority="high"
+            />
+
             <div className="hero-overlay-gradient-left"></div>
           </div>
           <div className="hero-bg-cell">
-            <img src={heroBali} alt="Bali" className="hero-image" />
+            <img
+              src={heroBali}
+              alt="Serene tropical paradise and nature in Bali, Indonesia"
+              className="hero-image"
+              loading="eager"
+              fetchPriority="high"
+            />
+
             <div className="hero-overlay-gradient-right"></div>
           </div>
+
           <div className="hero-darken-overlay"></div>
         </div>
 
