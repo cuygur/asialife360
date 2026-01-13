@@ -15,9 +15,15 @@ import { heroContent } from "../data/homeContent";
 import heroDubai from "../assets/hero-dubai.png";
 import heroBali from "../assets/hero-bali.png";
 
-export const Home: React.FC = () => {
+interface HomeProps {
+  onBookClick?: () => void;
+}
+
+export const Home: React.FC<HomeProps> = ({ onBookClick }) => {
   return (
     <Layout>
+      {/* Hero Section */}
+
       {/* Hero Section */}
       <section className="hero-section">
         {/* Split Background */}
@@ -105,10 +111,18 @@ export const Home: React.FC = () => {
               }}
               className="hero-actions"
             >
-              <Button variant="accent" size="lg">
+              <Button variant="accent" size="lg" onClick={onBookClick}>
                 {heroContent.buttons.primary}
               </Button>
-              <Button variant="outline" size="lg" className="btn-hero-outline">
+              <Button
+                variant="outline"
+                size="lg"
+                className="btn-hero-outline"
+                onClick={() => {
+                  const dest = document.querySelector(".section-destinations");
+                  dest?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 {heroContent.buttons.secondary}
               </Button>
             </motion.div>
@@ -119,9 +133,9 @@ export const Home: React.FC = () => {
       <TrustBar />
       <ValueProposition />
       <Destinations />
-      <Segmentation />
+      <Segmentation onBookClick={onBookClick} />
       <WhyUs />
-      <CallToAction />
+      <CallToAction onBookClick={onBookClick} />
     </Layout>
   );
 };

@@ -5,8 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "../common/Button";
 import { navLinks } from "../../data/navigation";
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  onBookClick?: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onBookClick }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -32,7 +37,7 @@ export const Navbar: React.FC = () => {
               {link.label}
             </Link>
           ))}
-          <Button variant="primary" size="sm">
+          <Button variant="primary" size="sm" onClick={onBookClick}>
             Book Discovery Call
           </Button>
         </div>
@@ -66,7 +71,13 @@ export const Navbar: React.FC = () => {
                   {link.label}
                 </Link>
               ))}
-              <Button variant="primary" onClick={() => setIsOpen(false)}>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  setIsOpen(false);
+                  onBookClick?.();
+                }}
+              >
                 Book Discovery Call
               </Button>
             </div>

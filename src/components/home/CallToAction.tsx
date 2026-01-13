@@ -2,7 +2,11 @@ import React from "react";
 import { Button } from "../common/Button";
 import { ctaContent } from "../../data/homeContent";
 
-export const CallToAction: React.FC = () => {
+interface CallToActionProps {
+  onBookClick?: () => void;
+}
+
+export const CallToAction: React.FC<CallToActionProps> = ({ onBookClick }) => {
   return (
     <section className="section section-cta">
       {/* Background Accent */}
@@ -12,9 +16,10 @@ export const CallToAction: React.FC = () => {
         <h2 className="cta-title">{ctaContent.title}</h2>
         <p className="cta-description">{ctaContent.description}</p>
         <div className="cta-actions">
-          <Button variant="accent" size="lg">
+          <Button variant="accent" size="lg" onClick={onBookClick}>
             {ctaContent.buttonLabel}
           </Button>
+
           <div className="cta-subtext">{ctaContent.subText}</div>
 
           <div className="cta-link-wrapper">

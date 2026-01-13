@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "../common/Modal";
 import { Button } from "../common/Button";
-import { Calendar, Clock, User, Mail, Globe } from "lucide-react";
+import { Calendar, User, Mail, Globe } from "lucide-react";
 
 interface BookingModalProps {
   isOpen: boolean;

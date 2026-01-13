@@ -4,7 +4,11 @@ import { Briefcase, Sun } from "lucide-react";
 import { Button } from "../common/Button";
 import { segmentationContent } from "../../data/homeContent";
 
-export const Segmentation: React.FC = () => {
+interface SegmentationProps {
+  onBookClick?: () => void;
+}
+
+export const Segmentation: React.FC<SegmentationProps> = ({ onBookClick }) => {
   const [activeTab, setActiveTab] = useState(segmentationContent.tabs[0].id);
 
   const activeData = segmentationContent.tabs.find(
@@ -58,7 +62,7 @@ export const Segmentation: React.FC = () => {
                 </div>
               </div>
 
-              <Button variant="primary" size="lg">
+              <Button variant="primary" size="lg" onClick={onBookClick}>
                 {activeData.buttonLabel}
               </Button>
             </motion.div>
