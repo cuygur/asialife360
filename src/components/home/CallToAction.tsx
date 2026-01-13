@@ -4,9 +4,13 @@ import { ctaContent } from "../../data/homeContent";
 
 interface CallToActionProps {
   onBookClick?: () => void;
+  onDownloadClick?: () => void;
 }
 
-export const CallToAction: React.FC<CallToActionProps> = ({ onBookClick }) => {
+export const CallToAction: React.FC<CallToActionProps> = ({
+  onBookClick,
+  onDownloadClick,
+}) => {
   return (
     <section className="section section-cta">
       {/* Background Accent */}
@@ -23,9 +27,9 @@ export const CallToAction: React.FC<CallToActionProps> = ({ onBookClick }) => {
           <div className="cta-subtext">{ctaContent.subText}</div>
 
           <div className="cta-link-wrapper">
-            <a href="#" className="cta-link">
+            <button className="cta-link-btn" onClick={onDownloadClick}>
               {ctaContent.linkText}
-            </a>
+            </button>
           </div>
         </div>
       </div>

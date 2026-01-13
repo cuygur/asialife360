@@ -17,9 +17,10 @@ import heroBali from "../assets/hero-bali.png";
 
 interface HomeProps {
   onBookClick?: () => void;
+  onDownloadClick?: () => void;
 }
 
-export const Home: React.FC<HomeProps> = ({ onBookClick }) => {
+export const Home: React.FC<HomeProps> = ({ onBookClick, onDownloadClick }) => {
   return (
     <Layout>
       {/* Hero Section */}
@@ -131,11 +132,15 @@ export const Home: React.FC<HomeProps> = ({ onBookClick }) => {
       </section>
 
       <TrustBar />
-      <ValueProposition />
+      <ValueProposition onBookClick={onBookClick} />
+
       <Destinations />
       <Segmentation onBookClick={onBookClick} />
       <WhyUs />
-      <CallToAction onBookClick={onBookClick} />
+      <CallToAction
+        onBookClick={onBookClick}
+        onDownloadClick={onDownloadClick}
+      />
     </Layout>
   );
 };

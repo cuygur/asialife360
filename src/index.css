@@ -490,3 +490,17 @@ img {
 .cta-link:hover {
   color: var(--color-accent-hover);
 }
+.cta-link-btn {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: var(--color-accent);
+  transition: var(--transition-fast);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.cta-link-btn:hover {
+  color: var(--color-accent-hover);
+}

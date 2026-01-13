@@ -2,8 +2,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { valuePropsContent } from "../../data/homeContent";
+import { Button } from "../common/Button";
 
-export const ValueProposition: React.FC = () => {
+interface ValuePropsProps {
+  onBookClick?: () => void;
+}
+
+export const ValueProposition: React.FC<ValuePropsProps> = ({
+  onBookClick,
+}) => {
   return (
     <section className="section section-value-prop">
       <div className="container">
@@ -66,6 +73,13 @@ export const ValueProposition: React.FC = () => {
                 </li>
               ))}
             </ul>
+            <Button
+              variant="accent"
+              className="w-full mt-lg"
+              onClick={onBookClick}
+            >
+              Start Your Real Life
+            </Button>
           </motion.div>
         </div>
       </div>
