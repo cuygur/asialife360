@@ -18,18 +18,30 @@ export const Button: React.FC<ButtonProps> = ({
   const variantClass = `btn-${variant}`;
   const sizeClass = `btn-${size}`;
 
+  const isAccent = variant === "accent";
+
   return (
     <motion.button
       className={`${baseClass} ${variantClass} ${sizeClass} ${className}`}
       whileHover={{
         scale: 1.02,
-        boxShadow: "var(--shadow-md)",
+        boxShadow: isAccent
+          ? "0 0 20px rgba(212, 175, 55, 0.4)"
+          : "var(--shadow-md)",
       }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.2 }}
       {...props}
     >
       {children}
+      {isAccent && (
+        <motion.div
+          className="btn-glow"
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        />
+      )}
     </motion.button>
   );
 };

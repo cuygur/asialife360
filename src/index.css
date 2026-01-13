@@ -885,15 +885,18 @@ img {
 }
 
 .navbar-mobile-menu {
-  background-color: var(--color-white);
-  border-bottom: 1px solid var(--color-border);
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border);
   overflow: hidden;
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-xl);
 }
+
 
 .mobile-links-container {
   display: flex;
@@ -1252,6 +1255,7 @@ img {
   gap: 0.75rem;
   margin-top: 2rem;
 }
+
 /* Premium Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -1280,4 +1284,19 @@ img {
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 4px;
+}
+
+/* Button Glow Effect */
+.btn-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
 }
