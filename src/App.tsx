@@ -1,23 +1,62 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
 import { ModalProvider } from "./context/ModalContext";
-import { DestinationDetail } from "./pages/DestinationDetail";
-import { DestinationsOverview } from "./pages/DestinationsOverview";
-import { Services } from "./pages/Services";
 
-import { About } from "./pages/About";
+// Lazy Load Pages
+const Home = lazy(() =>
+  import("./pages/Home").then((m) => ({ default: m.Home }))
+);
+const DestinationDetail = lazy(() =>
+  import("./pages/DestinationDetail").then((m) => ({
+    default: m.DestinationDetail,
+  }))
+);
+const DestinationsOverview = lazy(() =>
+  import("./pages/DestinationsOverview").then((m) => ({
+    default: m.DestinationsOverview,
+  }))
+);
+const Services = lazy(() =>
+  import("./pages/Services").then((m) => ({ default: m.Services }))
+);
+const About = lazy(() =>
+  import("./pages/About").then((m) => ({ default: m.About }))
+);
+const NotFound = lazy(() =>
+  import("./pages/NotFound").then((m) => ({ default: m.NotFound }))
+);
+
+// Loading Component
+const PageLoading = () => (
+  <div
+    style={{
+      height: "100vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "#F8FAFC",
+    }}
+  >
+    <div className="animate-pulse text-primary font-heading text-2xl">
+      AsiaLife360...
+    </div>
+  </div>
+);
 
 function App() {
   return (
     <Router>
       <ModalProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/destinations/:id" element={<DestinationDetail />} />
-          <Route path="/destinations" element={<DestinationsOverview />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+        <Suspense fallback={<PageLoading />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/destinations/:id" element={<DestinationDetail />} />
+            <Route path="/destinations" element={<DestinationsOverview />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </ModalProvider>
     </Router>
   );
