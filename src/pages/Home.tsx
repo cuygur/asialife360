@@ -14,17 +14,13 @@ import { heroContent } from "../data/homeContent";
 // Assets
 import heroDubai from "../assets/hero-dubai.png";
 import heroBali from "../assets/hero-bali.png";
+import { useModals } from "../context/ModalContext";
 
-interface HomeProps {
-  onBookClick?: () => void;
-  onDownloadClick?: () => void;
-}
+export const Home: React.FC = () => {
+  const { openBooking, openDownload } = useModals();
 
-export const Home: React.FC<HomeProps> = ({ onBookClick, onDownloadClick }) => {
   return (
     <Layout>
-      {/* Hero Section */}
-
       {/* Hero Section */}
       <section className="hero-section">
         {/* Split Background */}
@@ -112,7 +108,7 @@ export const Home: React.FC<HomeProps> = ({ onBookClick, onDownloadClick }) => {
               }}
               className="hero-actions"
             >
-              <Button variant="accent" size="lg" onClick={onBookClick}>
+              <Button variant="accent" size="lg" onClick={openBooking}>
                 {heroContent.buttons.primary}
               </Button>
               <Button
@@ -132,15 +128,11 @@ export const Home: React.FC<HomeProps> = ({ onBookClick, onDownloadClick }) => {
       </section>
 
       <TrustBar />
-      <ValueProposition onBookClick={onBookClick} />
-
+      <ValueProposition onBookClick={openBooking} />
       <Destinations />
-      <Segmentation onBookClick={onBookClick} />
+      <Segmentation onBookClick={openBooking} />
       <WhyUs />
-      <CallToAction
-        onBookClick={onBookClick}
-        onDownloadClick={onDownloadClick}
-      />
+      <CallToAction onBookClick={openBooking} onDownloadClick={openDownload} />
     </Layout>
   );
 };
