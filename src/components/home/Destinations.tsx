@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Destinations: React.FC = () => {
   const destinations = [
@@ -85,7 +86,8 @@ export const Destinations: React.FC = () => {
                 </p>
               </div>
 
-              <div
+              <Link
+                to="/destinations"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -93,10 +95,11 @@ export const Destinations: React.FC = () => {
                   color: "var(--color-primary)",
                   fontWeight: 600,
                   cursor: "pointer",
+                  width: "fit-content",
                 }}
               >
                 Learn More <ArrowRight size={16} />
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
