@@ -72,7 +72,7 @@ export const Services: React.FC = () => {
             <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-accent font-bold text-sm mb-8 uppercase tracking-widest backdrop-blur-md">
               End-to-End Relocation
             </div>
-            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 leading-tight tracking-tight text-white">
               The Effortless <br />{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
                 Relocation Engine
@@ -141,7 +141,7 @@ export const Services: React.FC = () => {
             </div>
 
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">
                 One Agency. One Fee. Total Peace.
               </h2>
               <div className="w-24 h-1 bg-accent mx-auto mb-8 rounded-full"></div>
