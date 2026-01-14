@@ -3,12 +3,14 @@
 :root {
   /* Brand Colors */
   --color-primary: #0F172A;
-  /* Deep Ocean */
+  /* Deep Midnight Blue - Stability */
   --color-secondary: #1E293B;
-  /* Lighter Deep Blue */
-  --color-accent: #D4AF37;
-  /* Gold/Sand */
-  --color-accent-hover: #B5952F;
+  /* Slate - Authority */
+  --color-accent: #D97706;
+  /* Sun-faded Terracotta - Luxury */
+  --color-accent-hover: #B45309;
+  --color-tropical-emerald: #059669;
+  /* Tropical Emerald - The Asia Adventure */
 
   /* Neutral Colors */
   --color-bg: #F8FAFC;
@@ -58,6 +60,9 @@
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* New Utility Colors */
+  --color-surface: #F1F5F9;
 
   /* Section Spacing */
   --spacing-section: 6rem;
@@ -153,6 +158,35 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
 }
 
 html {
@@ -613,6 +647,98 @@ img {
   color: var(--color-accent-hover);
 }
 
+/* Roadmap Styles */
+.section-roadmap {
+  background: var(--color-white);
+  position: relative;
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  position: relative;
+}
+
+.roadmap-card {
+  position: relative;
+  padding: var(--spacing-lg);
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  transition: var(--transition-base);
+  height: 100%;
+}
+
+.roadmap-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
+
+.roadmap-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
+}
+
+.phase-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  opacity: 0.1;
+  line-height: 1;
+}
+
+.phase-icon-wrapper {
+  background: white;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.phase-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--color-primary);
+}
+
+.phase-subtitle {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.phase-description {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 1024px) {
+  .roadmap-connector {
+    position: absolute;
+    top: 50%;
+    right: -1.5rem;
+    width: 2rem;
+    height: 1px;
+    background: var(--color-border);
+    z-index: 1;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hidden-md {
+    display: none;
+  }
+}
+
 /* --- RESTORED STYLES --- */
 
 /* Common Section Header Styles */
@@ -680,6 +806,65 @@ img {
   border-radius: var(--radius-md);
   gap: 0.5rem;
   margin-top: var(--spacing-md);
+}
+
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.case-study-card {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.case-study-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+
+.case-study-type {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+}
+
+.case-study-dest {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.case-study-name {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+.content-segment {
+  margin-bottom: var(--spacing-md);
+}
+
+.segment-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.case-study-quote {
+  margin-top: auto;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.text-tropical-emerald {
+  color: var(--color-tropical-emerald);
 }
 
 .tab-button {

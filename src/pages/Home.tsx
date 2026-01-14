@@ -7,10 +7,11 @@ import { TrustBar } from "../components/home/TrustBar";
 import { ValueProposition } from "../components/home/ValueProposition";
 import { Destinations } from "../components/home/Destinations";
 import { Segmentation } from "../components/home/Segmentation";
+import { RelocationRoadmap } from "../components/home/RelocationRoadmap";
 import { WhyUs } from "../components/home/WhyUs";
+import { CaseStudies } from "../components/home/CaseStudies";
 import { CallToAction } from "../components/home/CallToAction";
 // Data
-import { heroContent } from "../data/homeContent";
 // Assets
 import heroDubai from "../assets/hero-dubai.png";
 import heroBali from "../assets/hero-bali.png";
@@ -82,8 +83,8 @@ export const Home: React.FC = () => {
               }}
               className="hero-title"
             >
-              {heroContent.title} <br />
-              <span className="text-accent">{heroContent.accentTitle}</span>
+              Relocate to Asia with <br />
+              <span className="text-accent">Absolute Certainty</span>
             </motion.h1>
 
             <motion.p
@@ -97,7 +98,9 @@ export const Home: React.FC = () => {
               }}
               className="hero-description"
             >
-              {heroContent.description}
+              Bespoke relocation services for high-net-worth retirees and global
+              professionals seeking lifestyle arbitrage in the UAE, Thailand,
+              Philippines, and Indonesia.
             </motion.p>
 
             <motion.div
@@ -112,7 +115,7 @@ export const Home: React.FC = () => {
               className="hero-actions"
             >
               <Button variant="accent" size="lg" onClick={openBooking}>
-                {heroContent.buttons.primary}
+                Book Relocation Assessment
               </Button>
               <Button
                 variant="outline"
@@ -120,7 +123,7 @@ export const Home: React.FC = () => {
                 className="btn-hero-outline"
                 onClick={() => navigate("/destinations")}
               >
-                {heroContent.buttons.secondary}
+                Explore Destinations
               </Button>
             </motion.div>
           </motion.div>
@@ -128,10 +131,12 @@ export const Home: React.FC = () => {
       </section>
 
       <TrustBar />
+      <RelocationRoadmap />
       <ValueProposition onBookClick={openBooking} />
       <Destinations />
       <Segmentation onBookClick={openBooking} />
       <WhyUs />
+      <CaseStudies />
       <CallToAction onBookClick={openBooking} onDownloadClick={openDownload} />
     </Layout>
   );

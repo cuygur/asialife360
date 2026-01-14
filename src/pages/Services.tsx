@@ -60,11 +60,11 @@ export const Services: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="section-title">Our White-Glove Services</h1>
+            <h1 className="section-title">The Effortless Relocation Engine</h1>
             <p className="section-description">
-              Moving your life across the world shouldn't feel like a gamble. We
-              provide a full-spectrum solution covering every legal and
-              lifestyle detail.
+              Moving your life to Asia should feel like an upgrade, not a battle
+              with bureaucracy. Our white-glove services replace anxiety with
+              absolute legal and logistical certainty.
             </p>
           </motion.div>
 

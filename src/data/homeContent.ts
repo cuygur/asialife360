@@ -76,6 +76,12 @@ export const destinationsContent = [
     tags: ["0% Tax", "Business Hub", "Luxury"],
     heroImage: "hero-dubai.png",
     stat: "0% Income Tax",
+    metrics: {
+      healthcare: "World-Class (Private)",
+      connectivity: "Global Hub (1.2 Gbps)",
+      safety: "9.8/10",
+      tax: "0%",
+    },
     highlights: [
       "No income or capital gains tax",
       "World-class infrastructure and safety",
@@ -93,6 +99,12 @@ export const destinationsContent = [
     tags: ["Wellness", "Community", "Nature"],
     heroImage: "hero-bali.png",
     stat: "Top Nomad Spot",
+    metrics: {
+      healthcare: "International Clinics",
+      connectivity: "Nomad Standard (100 Mbps)",
+      safety: "8.5/10",
+      tax: "Low/Variable",
+    },
     highlights: [
       "Lower cost of high-end living",
       "Vibrant creative and startup culture",
@@ -111,6 +123,12 @@ export const destinationsContent = [
     tags: ["Food", "Healthcare", "Value"],
     heroImage: "hero-bangkok.png",
     stat: "Best Value Luxury",
+    metrics: {
+      healthcare: "JCI Accredited (Superior)",
+      connectivity: "5G Supercity (1 Gbps)",
+      safety: "8.2/10",
+      tax: "Low (LTR Visa)",
+    },
     highlights: [
       "JCI-accredited world-class healthcare",
       "Food paradise from street to Michelin",
@@ -129,6 +147,12 @@ export const destinationsContent = [
     tags: ["English", "Beaches", "Hospitality"],
     heroImage: "hero-philippines.png",
     stat: "Most Accessible",
+    metrics: {
+      healthcare: "Premium (Manila/BGC)",
+      connectivity: "Improving (Starlink Avail.)",
+      safety: "7.8/10",
+      tax: "Moderate",
+    },
     highlights: [
       "Widespread English proficiency",
       "Over 7,000 stunning islands to explore",

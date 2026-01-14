@@ -3,7 +3,16 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "../components/layout/Layout";
 import { destinationsContent } from "../data/homeContent";
-import { ArrowRight, Check, MapPin, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  MapPin,
+  Sparkles,
+  Activity,
+  Wifi,
+  Shield,
+  Landmark,
+} from "lucide-react";
 import { Button } from "../components/common/Button";
 import { useModals } from "../context/ModalContext";
 
@@ -135,6 +144,54 @@ export const DestinationsOverview: React.FC = () => {
                   <p className="text-lg text-text-muted mb-8 leading-relaxed">
                     {dest.description}
                   </p>
+
+                  {/* Metrics Matrix Overlay (Always visible on Overview for context) */}
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    <div className="flex items-center gap-3 p-3 bg-surface rounded-xl border border-border">
+                      <Activity size={20} className="text-accent" />
+                      <div>
+                        <p className="text-[10px] uppercase tracking-wider text-text-muted font-bold">
+                          Healthcare
+                        </p>
+                        <p className="text-xs font-semibold text-primary">
+                          {(dest as any).metrics.healthcare}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-surface rounded-xl border border-border">
+                      <Wifi size={20} className="text-accent" />
+                      <div>
+                        <p className="text-[10px] uppercase tracking-wider text-text-muted font-bold">
+                          Connectivity
+                        </p>
+                        <p className="text-xs font-semibold text-primary">
+                          {(dest as any).metrics.connectivity}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-surface rounded-xl border border-border">
+                      <Shield size={20} className="text-accent" />
+                      <div>
+                        <p className="text-[10px] uppercase tracking-wider text-text-muted font-bold">
+                          Safety Index
+                        </p>
+                        <p className="text-xs font-semibold text-primary">
+                          {(dest as any).metrics.safety}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-surface rounded-xl border border-border">
+                      <Landmark size={20} className="text-accent" />
+                      <div>
+                        <p className="text-[10px] uppercase tracking-wider text-text-muted font-bold">
+                          Tax Efficiency
+                        </p>
+                        <p className="text-xs font-semibold text-primary">
+                          {(dest as any).metrics.tax}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
                   <div className="space-y-3 mb-8">
                     {(dest.highlights || []).slice(0, 3).map((item, idx) => (
