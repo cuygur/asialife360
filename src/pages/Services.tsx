@@ -74,9 +74,7 @@ export const Services: React.FC = () => {
             </div>
             <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 leading-tight tracking-tight text-white">
               The Effortless <br />{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
-                Relocation Engine
-              </span>
+              <span className="text-white">Relocation Engine</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed max-w-2xl mx-auto font-light">
               Moving your life to Asia should feel like an upgrade, not a battle
