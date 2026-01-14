@@ -37,23 +37,23 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <motion.button
-      className={`${baseClass} ${variantClass} ${sizeClass} rounded-md ${className}`}
+      className={`${baseClass} ${variantClass} ${sizeClass} rounded-md relative overflow-hidden ${className}`}
       whileHover={{
         scale: 1.02,
         boxShadow: isAccent
-          ? "0 0 20px rgba(212, 175, 55, 0.4)"
-          : "var(--shadow-md)",
+          ? "0 0 20px rgba(217, 119, 6, 0.4)"
+          : "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
       }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.2 }}
       {...props}
     >
-      {children}
+      <span className="relative z-10">{children}</span>
       {isAccent && (
         <motion.div
           className="btn-glow"
           initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
+          whileHover={{ opacity: 0.2 }}
           transition={{ duration: 0.3 }}
         />
       )}

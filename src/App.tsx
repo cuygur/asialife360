@@ -28,15 +28,7 @@ const NotFound = lazy(() =>
 
 // Loading Component
 const PageLoading = () => (
-  <div
-    style={{
-      height: "100vh",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#F8FAFC",
-    }}
-  >
+  <div className="h-screen flex items-center justify-center bg-bg">
     <div className="animate-pulse text-primary font-heading text-2xl">
       AsiaLife360...
     </div>
