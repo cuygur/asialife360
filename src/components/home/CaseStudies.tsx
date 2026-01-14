@@ -30,9 +30,15 @@ const caseStudies = [
 
 export const CaseStudies: React.FC = () => {
   return (
-    <section className="py-24 bg-surface">
-      <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <section className="py-24 bg-surface relative overflow-hidden">
+      {/* Decorative BG */}
+      <div className="absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-white/0 to-primary/5 pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-accent font-bold uppercase tracking-widest text-sm mb-4">
+            Success Stories
+          </div>
           <h2 className="text-4xl font-heading font-bold mb-4 text-primary">
             Real Transformations
           </h2>
@@ -42,53 +48,75 @@ export const CaseStudies: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {caseStudies.map((study, index) => (
             <motion.div
               key={index}
-              className="p-10 rounded-xl bg-white/70 backdrop-blur-xl border border-white/30 shadow-premium flex flex-col h-full transition-all duration-300 hover:translate-y-[-5px]"
+              className="p-10 pl-12 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/60 shadow-glass flex flex-col h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-premium relative overflow-hidden group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-xs uppercase tracking-widest text-text-muted font-bold">
-                  {study.type}
-                </span>
-                <span className="text-xs uppercase tracking-widest text-accent font-bold">
+              <div className="absolute top-0 left-0 w-2 h-full bg-accent/20 group-hover:bg-accent transition-colors" />
+
+              <div className="flex justify-between items-center mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg">
+                    {study.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-primary leading-none mb-1">
+                      {study.name}
+                    </h3>
+                    <div className="text-xs uppercase tracking-widest text-text-muted font-bold">
+                      {study.type}
+                    </div>
+                  </div>
+                </div>
+                <span className="px-4 py-1.5 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-wider border border-accent/20">
                   {study.destination}
                 </span>
               </div>
-              <h3 className="text-2xl font-bold mb-8 text-primary">
-                {study.name}
-              </h3>
 
-              <div className="space-y-6 mb-10">
-                <div className="space-y-2">
-                  <h4 className="text-xs uppercase tracking-widest text-text-muted font-bold opacity-70">
-                    The Challenge
+              <div className="space-y-6 mb-10 flex-grow">
+                <div className="p-4 rounded-xl bg-red-50/50 border border-red-100/50">
+                  <h4 className="text-[10px] uppercase tracking-widest text-red-400 font-bold mb-2 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                    Challenge
                   </h4>
-                  <p className="text-text">{study.challenge}</p>
+                  <p className="text-text-muted text-sm">{study.challenge}</p>
                 </div>
-                <div className="space-y-2">
-                  <h4 className="text-xs uppercase tracking-widest text-text-muted font-bold opacity-70">
-                    The Outcome
+                <div className="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100/50">
+                  <h4 className="text-[10px] uppercase tracking-widest text-emerald-600 font-bold mb-2 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Outcome
                   </h4>
-                  <p className="text-emerald font-semibold">{study.outcome}</p>
+                  <p className="text-emerald-800 font-medium text-sm">
+                    {study.outcome}
+                  </p>
                 </div>
               </div>
 
-              <div className="mt-auto pt-8 border-t border-border/50">
-                <Quote size={24} className="text-accent opacity-50 mb-2" />
-                <p className="italic text-text">"{study.quote}"</p>
+              <div className="mt-auto pt-8 border-t border-border/50 relative">
+                <Quote
+                  size={40}
+                  className="text-accent/10 absolute -top-5 left-0"
+                />
+                <p className="italic text-primary/80 relative z-10 pl-6 border-l-2 border-accent/20">
+                  "{study.quote}"
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="group">
+        <div className="text-center mt-16">
+          <Button
+            variant="outline"
+            size="lg"
+            className="group border-border hover:border-accent hover:text-accent bg-white/50 backdrop-blur-sm"
+          >
             View All Success Stories{" "}
             <ArrowRight
               size={20}

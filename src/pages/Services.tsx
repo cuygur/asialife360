@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Layout } from "../components/layout/Layout";
-import { ShieldCheck, Home, Landmark, Users, CheckCircle } from "lucide-react";
+import { ShieldCheck, Home, Landmark, Users } from "lucide-react";
 import { Button } from "../components/common/Button";
 import { useModals } from "../context/ModalContext";
 
@@ -53,52 +53,71 @@ export const Services: React.FC = () => {
 
   return (
     <Layout>
-      <section className="py-24 bg-surface">
-        <div className="container mx-auto px-6">
+      {/* Hero */}
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-primary text-white">
+        {/* Background */}
+        <div className="absolute inset-0 bg-primary z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary z-10" />
+          <div className="absolute top-0 right-[-20%] w-[800px] h-[800px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-indigo-900/20 rounded-full blur-[100px] pointer-events-none" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-20 text-center">
           <motion.div
-            className="text-center max-w-3xl mx-auto mb-20"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-primary leading-tight">
-              The Effortless Relocation Engine
+            <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-accent font-bold text-sm mb-8 uppercase tracking-widest backdrop-blur-md">
+              End-to-End Relocation
+            </div>
+            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 leading-tight tracking-tight">
+              The Effortless <br />{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
+                Relocation Engine
+              </span>
             </h1>
-            <p className="text-xl text-text-muted leading-relaxed">
+            <p className="text-xl text-white/70 leading-relaxed max-w-2xl mx-auto font-light">
               Moving your life to Asia should feel like an upgrade, not a battle
               with bureaucracy. Our white-glove services replace anxiety with
               absolute legal and logistical certainty.
             </p>
           </motion.div>
+        </div>
+      </section>
 
+      <section className="py-24 bg-bg relative z-10 -mt-10 rounded-t-[40px] shadow-[0_-20px_40px_rgba(0,0,0,0.05)] border-t border-white/5">
+        <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
             {services.map((service, i) => (
               <motion.div
                 key={i}
-                className="p-10 rounded-3xl bg-white/70 backdrop-blur-xl border border-white shadow-premium flex flex-col md:flex-row gap-8"
-                initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                className="group p-10 rounded-3xl bg-white border border-border shadow-sm hover:shadow-premium hover:border-accent/20 transition-all duration-300 flex flex-col md:flex-row gap-8 relative overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
               >
-                <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0 text-accent">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-surface to-transparent rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500" />
+
+                <div className="w-16 h-16 rounded-2xl bg-surface border border-border group-hover:border-accent/20 flex items-center justify-center shrink-0 text-primary group-hover:text-accent transition-colors shadow-inner">
                   {service.icon}
                 </div>
-                <div className="space-y-4">
-                  <h2 className="text-2xl font-heading font-bold text-primary">
+                <div className="space-y-4 relative z-10">
+                  <h2 className="text-2xl font-bold text-primary group-hover:text-accent transition-colors">
                     {service.title}
                   </h2>
                   <p className="text-text-muted leading-relaxed">
                     {service.desc}
                   </p>
-                  <ul className="grid grid-cols-1 gap-3 pt-2">
+                  <ul className="grid grid-cols-1 gap-3 pt-4">
                     {service.features.map((feat, index) => (
                       <li
                         key={index}
-                        className="flex items-center gap-3 text-sm font-medium text-primary"
+                        className="flex items-center gap-3 text-sm font-medium text-primary/80"
                       >
-                        <CheckCircle
-                          size={16}
-                          className="text-accent shrink-0"
-                        />{" "}
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                         {feat}
                       </li>
                     ))}
@@ -109,27 +128,37 @@ export const Services: React.FC = () => {
           </div>
 
           <motion.div
-            className="text-center p-12 rounded-3xl bg-primary text-white shadow-premium max-w-4xl mx-auto overflow-hidden relative"
-            initial={{ opacity: 0, scale: 0.9 }}
+            className="text-center p-12 md:p-20 rounded-3xl bg-primary text-white shadow-2xl shadow-primary/30 max-w-5xl mx-auto overflow-hidden relative isolate"
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-accent rounded-full blur-[100px] opacity-10 translate-x-1/2 -translate-y-1/2"></div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 relative z-10">
-              One Agency. One Fee. Total Peace.
-            </h2>
-            <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto relative z-10">
-              Our comprehensive relocation package covers everything from
-              landing to living.
-            </p>
-            <Button
-              variant="accent"
-              size="lg"
-              onClick={openBooking}
-              className="relative z-10 min-w-[250px]"
-            >
-              Discuss Your Full Package
-            </Button>
+            {/* CTA Background */}
+            <div className="absolute inset-0 z-0">
+              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
+              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2" />
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+            </div>
+
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+                One Agency. One Fee. Total Peace.
+              </h2>
+              <div className="w-24 h-1 bg-accent mx-auto mb-8 rounded-full"></div>
+
+              <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                Our comprehensive relocation package covers everything from
+                landing to living. No hidden costs, no surprise hurdles.
+              </p>
+              <Button
+                variant="accent"
+                size="lg"
+                onClick={openBooking}
+                className="min-w-[280px] py-5 text-lg shadow-xl shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-1"
+              >
+                Discuss Your Full Package
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>

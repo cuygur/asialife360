@@ -39,50 +39,59 @@ const phases = [
 
 export const RelocationRoadmap: React.FC = () => {
   return (
-    <section className="py-24 bg-white relative">
+    <section className="py-24 bg-bg relative isolate">
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[300px] bg-white transform -skew-y-3 -z-10" />
+
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-heading font-bold mb-4 text-primary">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-bold mb-4 uppercase tracking-wider">
+            The Process
+          </div>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-primary">
             Your Relocation Roadmap
           </h2>
           <p className="text-lg text-text-muted leading-relaxed">
             We've distilled the complex move to Asia into four clear, manageable
-            phases.
+            phases, removing the friction from your journey.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+          {/* Desktop Connector Line */}
+          <div className="hidden lg:block absolute top-[60px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-accent/20 via-accent/50 to-accent/20 z-0"></div>
+
           {phases.map((phase, index) => (
             <motion.div
               key={index}
-              className="relative p-8 bg-bg rounded-xl border border-border transition-all duration-300 h-full hover:translate-y-[-5px] hover:shadow-lg hover:border-accent group"
+              className="relative p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-border shadow-sm transition-all duration-300 h-full hover:-translate-y-2 hover:shadow-premium group z-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
             >
-              <div className="flex justify-between items-start mb-6">
-                <span className="font-heading text-4xl font-bold text-primary opacity-10 leading-none">
-                  {phase.phase}
-                </span>
-                <div className="bg-white p-3 rounded-md shadow-sm">
-                  {phase.icon}
+              <div className="flex flex-col items-center text-center mb-6">
+                <div className="relative mb-6">
+                  <span className="font-heading text-6xl font-bold text-slate-100 absolute -top-4 left-1/2 -translate-x-1/2 z-0 scale-150 pointer-events-none select-none group-hover:text-accent/5 transition-colors">
+                    {phase.phase}
+                  </span>
+                  <div className="bg-white p-4 rounded-2xl shadow-lg relative z-10 border border-border group-hover:border-accent/30 transition-colors">
+                    {phase.icon}
+                  </div>
                 </div>
-              </div>
-              <div className="roadmap-card-body">
-                <h3 className="text-2xl font-bold mb-1 text-primary">
+
+                <h3 className="text-2xl font-bold mb-2 text-primary group-hover:text-accent transition-colors">
                   {phase.title}
                 </h3>
-                <h4 className="text-sm uppercase tracking-widest text-accent mb-4 font-semibold">
+                <h4 className="text-xs uppercase tracking-widest text-text-muted mb-4 font-semibold border-b border-accent/20 pb-2">
                   {phase.subtitle}
                 </h4>
+              </div>
+
+              <div className="text-center">
                 <p className="text-text-muted text-sm leading-relaxed">
                   {phase.description}
                 </p>
               </div>
-              {index < phases.length - 1 && (
-                <div className="absolute top-1/2 right-[-1.5rem] w-8 h-[1px] bg-border z-1 hidden lg:block"></div>
-              )}
             </motion.div>
           ))}
         </div>

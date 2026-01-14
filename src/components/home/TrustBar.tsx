@@ -19,10 +19,10 @@ const stats = [
 
 export const TrustBar: React.FC = () => {
   return (
-    <section className="py-8 border-b border-border bg-white">
+    <section className="py-12 border-b border-white/50 bg-surface/50 relative z-20 -mt-10 mx-4 md:mx-10 rounded-2xl shadow-glass backdrop-blur-md border border-white/40">
       <div className="container mx-auto px-6">
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-center"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8 items-center divide-x divide-primary/5"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -40,19 +40,21 @@ export const TrustBar: React.FC = () => {
             <motion.div
               key={index}
               variants={{
-                hidden: { opacity: 0, y: 20 },
+                hidden: { opacity: 0, y: 10 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
               }}
-              className="flex items-center gap-4 justify-center"
+              className="flex flex-col items-center justify-center text-center group"
             >
-              <div className="text-accent flex items-center justify-center">
+              <div className="text-accent mb-3 p-3 bg-accent/10 rounded-full group-hover:bg-accent group-hover:text-white transition-all duration-300">
                 {stat.icon}
               </div>
               <div className="flex flex-col">
-                <div className="font-bold text-xl text-primary leading-none">
+                <div className="font-heading font-bold text-3xl text-primary leading-none mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm text-text-muted">{stat.label}</div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+                  {stat.label}
+                </div>
               </div>
             </motion.div>
           ))}
