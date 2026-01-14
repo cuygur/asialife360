@@ -21,17 +21,30 @@ export const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <div className="container navbar-container">
-        <Link to="/" className="navbar-logo">
-          <Globe size={28} className="logo-icon" />
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/70 backdrop-blur-xl shadow-premium py-3.5 border-b border-white/30"
+          : "py-6 bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-6 flex items-center justify-between">
+        <Link
+          to="/"
+          className="flex items-center gap-2 font-bold text-2xl text-primary"
+        >
+          <Globe size={28} className="text-accent" />
           <span>AsiaLife360</span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="navbar-desktop-menu">
+        <div className="hidden md:flex gap-8 items-center">
           {navLinks.map((link) => (
-            <Link key={link.href} to={link.href} className="navbar-link">
+            <Link
+              key={link.href}
+              to={link.href}
+              className="text-sm font-medium text-primary hover:text-accent transition-colors duration-200"
+            >
               {link.label}
             </Link>
           ))}
@@ -42,7 +55,7 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Toggle */}
         <div
-          className="navbar-mobile-toggle"
+          className="md:hidden text-primary cursor-pointer p-2"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -56,14 +69,14 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="navbar-mobile-menu"
+            className="md:hidden bg-white border-b border-border absolute top-full left-0 right-0"
           >
-            <div className="container mobile-links-container">
+            <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="mobile-link"
+                  className="text-lg font-medium text-primary hover:text-accent transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}

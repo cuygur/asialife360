@@ -37,47 +37,51 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
       title="Download the 2026 Relocation Guide"
     >
       {step === 1 && (
-        <div className="download-step">
-          <div className="guide-preview-card">
-            <div className="guide-icon">
+        <div className="space-y-8">
+          <div className="flex items-center gap-6 p-6 rounded-2xl bg-surface border border-border">
+            <div className="w-16 h-16 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
               <FileText size={40} className="text-accent" />
             </div>
-            <div className="guide-info">
-              <h4 className="guide-name">
+            <div className="space-y-1">
+              <h4 className="text-lg font-bold text-primary leading-tight">
                 The Ultimate 2026 Relocation Blueprint
               </h4>
-              <p className="guide-meta">PDF • 45 Pages • Updated Jan 2026</p>
+              <p className="text-xs text-text-muted font-semibold uppercase tracking-wider">
+                PDF • 45 Pages • Updated Jan 2026
+              </p>
             </div>
           </div>
 
-          <p className="download-intro">
+          <p className="text-text-muted leading-relaxed">
             Our comprehensive guide covers tax residency, visa legalities, and
             cost-of-living breakdowns for the UAE and Southeast Asia.
           </p>
 
-          <form onSubmit={handleDownload} className="download-form">
-            <div className="input-group">
-              <label>
-                <User size={16} /> Full Name
+          <form onSubmit={handleDownload} className="space-y-6">
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 text-sm font-bold text-primary">
+                <User size={16} className="text-accent" /> Full Name
               </label>
               <input
                 type="text"
                 placeholder="Jane Doe"
                 required
+                className="w-full px-4 py-3 rounded-xl border border-border bg-surface focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all"
                 value={formData.name}
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
               />
             </div>
-            <div className="input-group">
-              <label>
-                <Mail size={16} /> Work Email
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 text-sm font-bold text-primary">
+                <Mail size={16} className="text-accent" /> Work Email
               </label>
               <input
                 type="email"
                 placeholder="jane@company.com"
                 required
+                className="w-full px-4 py-3 rounded-xl border border-border bg-surface focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all"
                 value={formData.email}
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
@@ -87,44 +91,46 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
             <Button
               variant="accent"
               size="lg"
-              className="w-full mt-md"
+              className="w-full py-4 text-lg mt-4"
               type="submit"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
                 "Sending..."
               ) : (
-                <>
-                  <Download size={18} style={{ marginRight: "0.5rem" }} /> Get
-                  Instant Access
-                </>
+                <span className="flex items-center justify-center gap-2">
+                  <Download size={20} /> Get Instant Access
+                </span>
               )}
             </Button>
           </form>
-          <p className="privacy-note">
+          <p className="text-center text-[10px] text-text-muted uppercase tracking-widest font-bold">
             We respect your privacy. No spam, ever.
           </p>
         </div>
       )}
 
       {step === 2 && (
-        <div className="download-success">
-          <div className="success-icon-wrapper">
+        <div className="text-center py-6 space-y-8">
+          <div className="w-24 h-24 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-8">
             <CheckCircle2 size={56} className="text-accent" />
           </div>
-          <h3 className="success-title">Success!</h3>
-          <p className="success-desc">
-            The guide has been sent to <strong>{formData.email}</strong>. Your
+          <h3 className="text-3xl font-heading font-bold text-primary">
+            Success!
+          </h3>
+          <p className="text-text-muted leading-relaxed">
+            The guide has been sent to{" "}
+            <strong className="text-primary">{formData.email}</strong>. Your
             download should also start automatically in a few seconds.
           </p>
-          <div className="download-actions">
-            <Button variant="primary" className="w-full">
+          <div className="space-y-4">
+            <Button variant="primary" className="w-full py-4 text-lg">
               Download Manual Copy
             </Button>
             <Button
               variant="outline"
               onClick={onClose}
-              className="w-full mt-sm"
+              className="w-full py-4 text-lg"
             >
               Close
             </Button>

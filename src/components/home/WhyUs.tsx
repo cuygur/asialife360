@@ -5,30 +5,38 @@ import { whyUsContent } from "../../data/homeContent";
 
 export const WhyUs: React.FC = () => {
   return (
-    <section className="section section-why-us">
-      <div className="container">
+    <section className="py-24 bg-bg">
+      <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="section-header"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="section-title">{whyUsContent.title}</h2>
-          <p className="section-description">{whyUsContent.description}</p>
+          <h2 className="text-4xl font-heading font-bold mb-4 text-primary">
+            {whyUsContent.title}
+          </h2>
+          <p className="text-lg text-text-muted leading-relaxed">
+            {whyUsContent.description}
+          </p>
         </motion.div>
 
-        <div className="comparison-table-container">
-          <table className="comparison-table">
+        <div className="overflow-x-auto rounded-xl shadow-md">
+          <table className="w-full border-collapse bg-white min-w-[600px]">
             <thead>
               <motion.tr
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="table-header-row"
+                className="border-b-2 border-border"
               >
-                <th className="feature-col">Feature</th>
-                <th className="diy-col">The Hard Way (DIY)</th>
-                <th className="us-col">The AsiaLife360 Way</th>
+                <th className="w-1/4 p-6 text-left">Feature</th>
+                <th className="w-[37.5%] p-6 text-left text-text-muted">
+                  The Hard Way (DIY)
+                </th>
+                <th className="w-[37.5%] p-6 text-left text-primary bg-primary/5">
+                  The AsiaLife360 Way
+                </th>
               </motion.tr>
             </thead>
             <motion.tbody
@@ -54,18 +62,20 @@ export const WhyUs: React.FC = () => {
                       transition: { duration: 0.5 },
                     },
                   }}
-                  className="table-body-row"
+                  className="border-b border-border last:border-0"
                 >
-                  <td className="feature-cell">{row.feature}</td>
-                  <td className="diy-cell">
-                    <div className="diy-content">
-                      <X size={18} className="icon-error" />
+                  <td className="p-6 font-semibold text-primary">
+                    {row.feature}
+                  </td>
+                  <td className="p-6 text-text-muted">
+                    <div className="flex gap-3 items-center">
+                      <X size={18} className="text-red-500 shrink-0" />
                       <span>{row.diy}</span>
                     </div>
                   </td>
-                  <td className="us-cell">
-                    <div className="us-content">
-                      <Check size={18} className="icon-accent" />
+                  <td className="p-6 font-semibold text-primary bg-primary/5">
+                    <div className="flex gap-3 items-center">
+                      <Check size={18} className="text-accent shrink-0" />
                       <span>{row.us}</span>
                     </div>
                   </td>

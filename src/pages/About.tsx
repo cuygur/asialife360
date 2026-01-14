@@ -33,28 +33,32 @@ export const About: React.FC = () => {
 
   return (
     <Layout>
-      <section className="section bg-surface overflow-hidden">
-        <div className="container">
-          <div className="about-hero-grid">
+      <section className="py-24 bg-surface overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="section-title text-left">
+              <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-primary text-left">
                 The Vision Behind AsiaLife360
               </h1>
-              <p className="section-description text-left">
+              <p className="text-xl text-text-muted mb-8 leading-relaxed text-left">
                 Founded by former expats who navigated the complexities of
                 international relocation firsthand, AsiaLife360 was built to be
                 the agency we wish we had.
               </p>
-              <div className="about-text-content">
+              <div className="space-y-6 text-text-muted leading-relaxed">
                 <p>
                   Most relocation agencies are either giant, faceless
                   corporations or unverified local fixers. We found the middle
-                  ground: **institutional-grade legal competence with a
-                  boutique, personalized touch**.
+                  ground:{" "}
+                  <span className="font-bold text-primary italic">
+                    institutional-grade legal competence with a boutique,
+                    personalized touch
+                  </span>
+                  .
                 </p>
                 <p>
                   We focus exclusively on the UAE and Southeast Asia because we
@@ -66,21 +70,25 @@ export const About: React.FC = () => {
             </motion.div>
 
             <motion.div
-              className="about-hero-image-box"
+              className="relative"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="premium-border-box">
-                <div className="stat-floating glass-panel">
-                  <span className="stat-num">500+</span>
-                  <span className="stat-txt">Families Relocated</span>
+              <div className="relative p-4 border border-accent/20 rounded-3xl">
+                <div className="absolute top-8 -left-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-premium z-10 flex flex-col">
+                  <span className="text-3xl font-bold text-primary">500+</span>
+                  <span className="text-xs uppercase tracking-widest text-accent font-bold">
+                    Families Relocated
+                  </span>
                 </div>
-                <div className="stat-floating stat-floating-bottom glass-panel">
-                  <span className="stat-num">100%</span>
-                  <span className="stat-txt">Visa Success Rate</span>
+                <div className="absolute bottom-8 -right-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-premium z-10 flex flex-col">
+                  <span className="text-3xl font-bold text-primary">100%</span>
+                  <span className="text-xs uppercase tracking-widest text-accent font-bold">
+                    Visa Success Rate
+                  </span>
                 </div>
-                <div className="image-placeholder-about">
+                <div className="aspect-square bg-bg rounded-2xl flex items-center justify-center border border-border">
                   {/* Hero image could be a photo of the team or a premium office */}
                   <Globe
                     size={120}
@@ -94,39 +102,49 @@ export const About: React.FC = () => {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Our Core Values</h2>
-            <p className="section-description">
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl font-heading font-bold mb-4 text-primary">
+              Our Core Values
+            </h2>
+            <p className="text-lg text-text-muted leading-relaxed">
               The principles that guide every relocation we manage.
             </p>
           </div>
 
-          <div className="values-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
             {values.map((val, i) => (
               <motion.div
                 key={i}
-                className="value-card-about glass-panel"
+                className="p-8 rounded-2xl bg-white border border-border shadow-sm transition-all duration-300 hover:shadow-premium hover:translate-y-[-5px]"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="value-icon">{val.icon}</div>
-                <h3>{val.title}</h3>
-                <p>{val.desc}</p>
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-6">
+                  {val.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-primary">
+                  {val.title}
+                </h3>
+                <p className="text-text-muted text-sm leading-relaxed">
+                  {val.desc}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section section-cta-dark">
-        <div className="container">
-          <div className="about-cta-content text-center">
-            <h2>Your Journey Starts with a Conversation</h2>
-            <p>
+      <section className="py-24 bg-primary text-white text-center">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-white">
+              Your Journey Starts with a Conversation
+            </h2>
+            <p className="text-white/80 text-lg mb-10 leading-relaxed">
               We don't take on every client. We only work with those where we
               are 100% certain we can deliver a life-changing upgrade.
             </p>

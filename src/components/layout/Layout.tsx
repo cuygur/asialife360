@@ -8,12 +8,12 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="layout-wrapper">
+    <div className="min-h-screen flex flex-col">
       <div className="noise-overlay" />
       <SchemaMarkup />
 
       <Navbar />
-      <main className="main-content">{children}</main>
+      <main className="flex-grow">{children}</main>
       <Footer />
     </div>
   );

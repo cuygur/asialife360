@@ -16,21 +16,27 @@ export const Segmentation: React.FC<SegmentationProps> = ({ onBookClick }) => {
   )!;
 
   return (
-    <section className="section section-segmentation">
-      <div className="container">
+    <section className="py-24 bg-white">
+      <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="section-header"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="section-title">{segmentationContent.title}</h2>
-          <div className="tab-container">
+          <h2 className="text-4xl font-heading font-bold mb-8 text-primary">
+            {segmentationContent.title}
+          </h2>
+          <div className="flex gap-4 justify-center flex-wrap">
             {segmentationContent.tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`tab-button ${activeTab === tab.id ? "active" : ""}`}
+                className={`flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 font-medium ${
+                  activeTab === tab.id
+                    ? "bg-primary text-white border-primary shadow-lg"
+                    : "bg-white text-text-muted border-border hover:border-accent hover:text-accent"
+                }`}
               >
                 {tab.id === "remote" ? (
                   <Briefcase size={18} />
@@ -43,7 +49,7 @@ export const Segmentation: React.FC<SegmentationProps> = ({ onBookClick }) => {
           </div>
         </motion.div>
 
-        <div className="segmentation-content">
+        <div className="max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -51,16 +57,25 @@ export const Segmentation: React.FC<SegmentationProps> = ({ onBookClick }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="segment-card"
+              className="p-10 rounded-xl bg-bg border border-border"
             >
-              <h3 className="segment-title">{activeData.title}</h3>
-              <p className="segment-description">{activeData.description}</p>
+              <h3 className="text-3xl font-bold mb-4 text-primary">
+                {activeData.title}
+              </h3>
+              <p className="text-lg text-text-muted mb-8 leading-relaxed">
+                {activeData.description}
+              </p>
 
-              <div className="segment-tags-container">
-                <div className="segment-tags-title">Top Picks</div>
-                <div className="segment-tags">
+              <div className="mb-8">
+                <div className="text-sm uppercase tracking-widest text-accent font-bold mb-3">
+                  Top Picks
+                </div>
+                <div className="flex flex-wrap gap-2">
                   {activeData.topPicks.map((pick) => (
-                    <span key={pick} className="segment-tag">
+                    <span
+                      key={pick}
+                      className="px-4 py-2 rounded-lg bg-white border border-border text-sm font-medium text-text-muted"
+                    >
                       {pick}
                     </span>
                   ))}

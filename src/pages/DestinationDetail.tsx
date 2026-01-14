@@ -40,15 +40,22 @@ export const DestinationDetail: React.FC = () => {
 
   return (
     <Layout>
-      <section className="dest-detail-hero">
-        <div className="dest-detail-bg">
-          <img src={heroImg} alt={destination.name} className="hero-image" />
-          <div className="hero-darken-overlay"></div>
+      <section className="relative min-h-[60vh] flex items-center pt-20 overflow-hidden bg-primary">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={heroImg}
+            alt={destination.name}
+            className="w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
         </div>
 
-        <div className="container dest-detail-content">
-          <Link to="/" className="back-btn">
-            <ArrowLeft size={18} /> Back to Home
+        <div className="container mx-auto px-6 relative z-10 text-white">
+          <Link
+            to="/destinations"
+            className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors"
+          >
+            <ArrowLeft size={18} /> Back to Destinations
           </Link>
 
           <motion.div
@@ -56,87 +63,117 @@ export const DestinationDetail: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="dest-detail-tag">{destination.stat}</span>
-            <h1 className="dest-detail-title">{destination.name}</h1>
-            <p className="dest-detail-desc">{destination.description}</p>
-            <div className="dest-detail-actions">
+            <span className="inline-block px-4 py-1 rounded-full bg-accent text-primary font-bold text-sm mb-6">
+              {destination.stat}
+            </span>
+            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6">
+              {destination.name}
+            </h1>
+            <p className="text-xl opacity-90 max-w-2xl mb-10 leading-relaxed font-body">
+              {destination.description}
+            </p>
+            <div className="flex gap-4">
               <Button variant="accent" size="lg" onClick={openBooking}>
-                Speak to our {destination.name} Expert
+                Speak to our {destination.name.split(",")[0]} Expert
               </Button>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="section dest-detail-info">
-        <div className="container">
-          <div className="dest-info-grid">
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <motion.div
-              className="dest-main-info"
+              className="lg:col-span-2"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="info-title">
+              <h2 className="text-4xl font-heading font-bold mb-8 text-primary">
                 Why Relocate to {destination.name}?
               </h2>
-              <p className="info-text">{destination.lifestyle}</p>
+              <p className="text-lg text-text-muted leading-relaxed mb-10 whitespace-pre-wrap">
+                {destination.lifestyle}
+              </p>
 
-              <div className="highlights-grid">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {destination.highlights.map((item, i) => (
-                  <div key={i} className="highlight-item">
-                    <CheckCircle2 size={20} className="text-accent" />
-                    <span>{item}</span>
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 p-4 rounded-xl bg-bg border border-border"
+                  >
+                    <CheckCircle2
+                      size={20}
+                      className="text-accent shrink-0 mt-0.5"
+                    />
+                    <span className="text-text-muted">{item}</span>
                   </div>
                 ))}
               </div>
             </motion.div>
 
             <motion.aside
-              className="dest-sidebar-info"
+              className="space-y-8"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="info-card glass-panel">
-                <h3 className="card-heading">Relocation Stats</h3>
-                <div className="stat-row">
-                  <div className="stat-icon">
+              <div className="p-8 rounded-2xl bg-white border border-border shadow-sm">
+                <h3 className="text-xl font-bold mb-6 text-primary">
+                  Relocation Stats
+                </h3>
+                <div className="flex items-center gap-4 py-4 border-b border-border last:border-0">
+                  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-accent">
                     <MapPin size={20} />
                   </div>
-                  <div className="stat-meta">
-                    <label>Region</label>
-                    <span>{destination.tags[1]}</span>
+                  <div className="flex flex-col">
+                    <label className="text-[10px] uppercase tracking-wider text-text-muted font-bold">
+                      Region
+                    </label>
+                    <span className="text-sm font-semibold text-primary">
+                      {destination.tags[1]}
+                    </span>
                   </div>
                 </div>
-                <div className="stat-row">
-                  <div className="stat-icon">
+                <div className="flex items-center gap-4 py-4 border-b border-border last:border-0">
+                  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-accent">
                     <DollarSign size={20} />
                   </div>
-                  <div className="stat-meta">
-                    <label>Cost of Living</label>
-                    <span>{destination.costOfLiving.split(".")[0]}.</span>
+                  <div className="flex flex-col">
+                    <label className="text-[10px] uppercase tracking-wider text-text-muted font-bold">
+                      Cost of Living
+                    </label>
+                    <span className="text-sm font-semibold text-primary">
+                      {destination.costOfLiving.split(".")[0]}.
+                    </span>
                   </div>
                 </div>
-                <div className="stat-row">
-                  <div className="stat-icon">
+                <div className="flex items-center gap-4 py-4 border-b border-border last:border-0">
+                  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-accent">
                     <TrendingUp size={20} />
                   </div>
-                  <div className="stat-meta">
-                    <label>Primary Benefit</label>
-                    <span>{destination.tags[0]}</span>
+                  <div className="flex flex-col">
+                    <label className="text-[10px] uppercase tracking-wider text-text-muted font-bold">
+                      Primary Benefit
+                    </label>
+                    <span className="text-sm font-semibold text-primary">
+                      {destination.tags[0]}
+                    </span>
                   </div>
                 </div>
               </div>
 
-              <div className="cta-sidebar glass-panel">
-                <h4>Ready to move?</h4>
-                <p>
+              <div className="p-8 rounded-2xl bg-primary text-white shadow-premium">
+                <h4 className="text-xl font-bold mb-4 text-white">
+                  Ready to move?
+                </h4>
+                <p className="text-white/80 mb-6">
                   Our legal team in {destination.name.split(",")[0]} is ready to
                   start your visa process.
                 </p>
                 <Button
-                  variant="primary"
+                  variant="accent"
                   className="w-full"
                   onClick={openBooking}
                 >

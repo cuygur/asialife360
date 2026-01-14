@@ -58,7 +58,7 @@ export const DestinationsOverview: React.FC = () => {
         <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-primary/5 to-transparent -z-10 pointer-events-none" />
         <div className="absolute top-20 right-[-10%] w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
 
-        <div className="container">
+        <div className="container mx-auto px-6">
           {/* Enhanced Hero Section */}
           <motion.div
             className="max-w-4xl mx-auto text-center mb-20"

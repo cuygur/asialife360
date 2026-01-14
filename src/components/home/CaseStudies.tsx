@@ -30,48 +30,58 @@ const caseStudies = [
 
 export const CaseStudies: React.FC = () => {
   return (
-    <section className="section section-case-studies bg-surface">
-      <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Real Transformations</h2>
-          <p className="section-description">
+    <section className="py-24 bg-surface">
+      <div className="container mx-auto px-6">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-4xl font-heading font-bold mb-4 text-primary">
+            Real Transformations
+          </h2>
+          <p className="text-lg text-text-muted leading-relaxed">
             From bureaucratic struggle to tropical paradise. See how we've
             helped others make the leap.
           </p>
         </div>
 
-        <div className="case-studies-grid">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {caseStudies.map((study, index) => (
             <motion.div
               key={index}
-              className="case-study-card glass-panel"
+              className="p-10 rounded-xl bg-white/70 backdrop-blur-xl border border-white/30 shadow-premium flex flex-col h-full transition-all duration-300 hover:translate-y-[-5px]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <div className="case-study-header">
-                <span className="case-study-type">{study.type}</span>
-                <span className="case-study-dest">{study.destination}</span>
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-xs uppercase tracking-widest text-text-muted font-bold">
+                  {study.type}
+                </span>
+                <span className="text-xs uppercase tracking-widest text-accent font-bold">
+                  {study.destination}
+                </span>
               </div>
-              <h3 className="case-study-name">{study.name}</h3>
+              <h3 className="text-2xl font-bold mb-8 text-primary">
+                {study.name}
+              </h3>
 
-              <div className="case-study-content">
-                <div className="content-segment">
-                  <h4 className="segment-label">The Challenge</h4>
-                  <p>{study.challenge}</p>
+              <div className="space-y-6 mb-10">
+                <div className="space-y-2">
+                  <h4 className="text-xs uppercase tracking-widest text-text-muted font-bold opacity-70">
+                    The Challenge
+                  </h4>
+                  <p className="text-text">{study.challenge}</p>
                 </div>
-                <div className="content-segment">
-                  <h4 className="segment-label">The Outcome</h4>
-                  <p className="text-tropical-emerald font-semibold">
-                    {study.outcome}
-                  </p>
+                <div className="space-y-2">
+                  <h4 className="text-xs uppercase tracking-widest text-text-muted font-bold opacity-70">
+                    The Outcome
+                  </h4>
+                  <p className="text-emerald font-semibold">{study.outcome}</p>
                 </div>
               </div>
 
-              <div className="case-study-quote">
+              <div className="mt-auto pt-8 border-t border-border/50">
                 <Quote size={24} className="text-accent opacity-50 mb-2" />
-                <p className="italic">"{study.quote}"</p>
+                <p className="italic text-text">"{study.quote}"</p>
               </div>
             </motion.div>
           ))}

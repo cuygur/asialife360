@@ -35,43 +35,47 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Book Your Discovery Call">
       {step === 1 && (
-        <div className="booking-step">
-          <p className="booking-intro">
+        <div className="space-y-8">
+          <p className="text-text-muted leading-relaxed">
             Tell us a bit about your vision. This 30-minute call will focus on
             your specific relocation goals.
           </p>
-          <div className="booking-form-grid">
-            <div className="input-group">
-              <label>
-                <User size={16} /> Full Name
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 text-sm font-bold text-primary">
+                <User size={16} className="text-accent" /> Full Name
               </label>
               <input
                 type="text"
                 placeholder="John Doe"
+                className="w-full px-4 py-3 rounded-xl border border-border bg-surface focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all"
                 value={formData.name}
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
               />
             </div>
-            <div className="input-group">
-              <label>
-                <Mail size={16} /> Work Email
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 text-sm font-bold text-primary">
+                <Mail size={16} className="text-accent" /> Work Email
               </label>
               <input
                 type="email"
                 placeholder="john@company.com"
+                className="w-full px-4 py-3 rounded-xl border border-border bg-surface focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all"
                 value={formData.email}
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
               />
             </div>
-            <div className="input-group">
-              <label>
-                <Globe size={16} /> Preferred Destination
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 text-sm font-bold text-primary">
+                <Globe size={16} className="text-accent" /> Preferred
+                Destination
               </label>
               <select
+                className="w-full px-4 py-3 rounded-xl border border-border bg-surface focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all appearance-none cursor-pointer"
                 value={formData.destination}
                 onChange={(e) =>
                   setFormData({ ...formData, destination: e.target.value })
@@ -87,7 +91,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             </div>
           </div>
           <Button
-            className="w-full mt-lg"
+            className="w-full py-4 text-lg"
             onClick={() => setStep(2)}
             disabled={!formData.name || !formData.email}
           >
@@ -97,29 +101,39 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       )}
 
       {step === 2 && (
-        <div className="booking-step">
-          <div className="booking-summary-pill">
-            <User size={14} /> {formData.name} • <Globe size={14} />{" "}
+        <div className="space-y-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-primary text-sm font-bold border border-accent/20">
+            <User size={14} className="text-accent" /> {formData.name} •{" "}
+            <Globe size={14} className="text-accent" />{" "}
             {formData.destination || "Global"}
           </div>
-          <h4 className="step-title">Select a Date & Time</h4>
-          <div className="placeholder-calendar">
-            <div className="calendar-grid">
+          <h4 className="text-xl font-bold text-primary">
+            Select a Date & Time
+          </h4>
+          <div className="space-y-6">
+            <div className="grid grid-cols-7 gap-2">
               {/* Simplified placeholder for a calendar */}
               {[...Array(7)].map((_, i) => (
-                <div key={i} className="calendar-day">
-                  <span className="day-name">
+                <div
+                  key={i}
+                  className={`flex flex-col items-center p-3 rounded-xl border border-border transition-colors cursor-pointer hover:bg-surface ${
+                    i === 2
+                      ? "bg-primary text-white border-primary shadow-md"
+                      : "bg-surface"
+                  }`}
+                >
+                  <span className="text-[10px] uppercase tracking-wider font-bold opacity-60">
                     {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][i]}
                   </span>
-                  <div className="day-number">{15 + i}</div>
+                  <div className="text-lg font-bold">{15 + i}</div>
                 </div>
               ))}
             </div>
-            <div className="time-slots">
+            <div className="grid grid-cols-2 gap-3">
               {["9:00 AM", "11:30 AM", "2:00 PM", "4:30 PM"].map((time) => (
                 <button
                   key={time}
-                  className="time-slot-btn"
+                  className="py-3 px-4 rounded-xl border border-border text-center font-semibold hover:border-accent hover:bg-accent/5 transition-all text-sm disabled:opacity-50"
                   onClick={handleSubmit}
                   disabled={isLoading}
                 >
@@ -128,24 +142,33 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               ))}
             </div>
           </div>
-          <button className="back-link" onClick={() => setStep(1)}>
+          <button
+            className="text-sm font-bold text-accent hover:underline flex items-center justify-center w-full"
+            onClick={() => setStep(1)}
+          >
             Go back to details
           </button>
         </div>
       )}
 
       {step === 3 && (
-        <div className="booking-success">
-          <div className="success-icon-wrapper">
+        <div className="text-center py-6 space-y-6">
+          <div className="w-24 h-24 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-8">
             <Calendar size={48} className="text-accent" />
           </div>
-          <h3 className="success-title">Call Confirmed!</h3>
-          <p className="success-desc">
+          <h3 className="text-3xl font-heading font-bold text-primary">
+            Call Confirmed!
+          </h3>
+          <p className="text-text-muted leading-relaxed">
             We've sent a calendar invitation to{" "}
-            <strong>{formData.email}</strong>. We look forward to helping you
-            design your new life.
+            <strong className="text-primary">{formData.email}</strong>. We look
+            forward to helping you design your new life.
           </p>
-          <Button variant="outline" onClick={onClose} className="w-full">
+          <Button
+            variant="outline"
+            onClick={onClose}
+            className="w-full py-4 text-lg mt-8"
+          >
             Close
           </Button>
         </div>

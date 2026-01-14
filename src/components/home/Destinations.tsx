@@ -7,22 +7,24 @@ import { destinationsContent } from "../../data/homeContent";
 
 export const Destinations: React.FC = () => {
   return (
-    <section className="section section-destinations">
-      <div className="container">
+    <section className="py-24 bg-white">
+      <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="section-header"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="section-title">Choose Your New Home</h2>
-          <p className="section-description">
+          <h2 className="text-4xl font-heading font-bold mb-4 text-primary">
+            Choose Your New Home
+          </h2>
+          <p className="text-lg text-text-muted leading-relaxed">
             Every destination offers a unique advantage. Which one suits your
             vision?
           </p>
         </motion.div>
 
-        <div className="destinations-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {destinationsContent.map((dest, i) => (
             <motion.div
               key={i}
@@ -38,15 +40,24 @@ export const Destinations: React.FC = () => {
                 y: -12,
                 transition: { duration: 0.4, ease: "easeOut" },
               }}
-              className="destination-card"
+              className="p-8 rounded-xl bg-white border border-border shadow-sm flex flex-col justify-between h-full transition-all duration-300 hover:shadow-lg hover:border-accent"
             >
-              <div className="dest-card-content">
-                <h3 className="dest-card-title">{dest.name}</h3>
-                <span className="dest-card-tag">{dest.tags[0]}</span>
-                <p className="dest-card-desc">{dest.description}</p>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold mb-2 text-primary">
+                  {dest.name}
+                </h3>
+                <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-6">
+                  {dest.tags[0]}
+                </span>
+                <p className="text-text-muted leading-relaxed">
+                  {dest.description}
+                </p>
               </div>
 
-              <Link to={`/destinations/${dest.id}`} className="dest-card-link">
+              <Link
+                to={`/destinations/${dest.id}`}
+                className="flex items-center gap-2 text-primary font-semibold transition-all duration-200 hover:text-accent hover:gap-3"
+              >
                 Learn More <ArrowRight size={16} />
               </Link>
             </motion.div>

@@ -10,11 +10,11 @@ describe("Button component", () => {
 
   it("applies variant classes", () => {
     const { container } = render(<Button variant="accent">Accent</Button>);
-    expect(container.firstChild).toHaveClass("btn-accent");
+    expect(container.firstChild).toHaveClass("bg-accent", "text-primary");
   });
 
   it("applies size classes", () => {
     const { container } = render(<Button size="lg">Large</Button>);
-    expect(container.firstChild).toHaveClass("btn-lg");
+    expect(container.firstChild).toHaveClass("px-8", "py-4", "text-lg");
   });
 });

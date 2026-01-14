@@ -19,10 +19,10 @@ const stats = [
 
 export const TrustBar: React.FC = () => {
   return (
-    <section className="trust-bar-section">
-      <div className="container">
+    <section className="py-8 border-b border-border bg-white">
+      <div className="container mx-auto px-6">
         <motion.div
-          className="trust-bar-grid"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -43,12 +43,16 @@ export const TrustBar: React.FC = () => {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
               }}
-              className="trust-stat-item"
+              className="flex items-center gap-4 justify-center"
             >
-              <div className="trust-stat-icon">{stat.icon}</div>
-              <div className="trust-stat-content">
-                <div className="trust-stat-value">{stat.value}</div>
-                <div className="trust-stat-label">{stat.label}</div>
+              <div className="text-accent flex items-center justify-center">
+                {stat.icon}
+              </div>
+              <div className="flex flex-col">
+                <div className="font-bold text-xl text-primary leading-none">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-text-muted">{stat.label}</div>
               </div>
             </motion.div>
           ))}

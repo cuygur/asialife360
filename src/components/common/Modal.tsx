@@ -29,12 +29,12 @@ export const Modal: React.FC<ModalProps> = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="modal-overlay">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="modal-backdrop"
+            className="absolute inset-0 bg-primary/40 backdrop-blur-sm"
             onClick={onClose}
           />
           <motion.div
@@ -42,15 +42,22 @@ export const Modal: React.FC<ModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
-            className="modal-container glass-panel"
+            className="relative w-full max-w-xl bg-white/90 backdrop-blur-xl rounded-3xl shadow-premium overflow-hidden border border-white/20"
           >
-            <div className="modal-header">
-              {title && <h3 className="modal-title">{title}</h3>}
-              <button className="modal-close-btn" onClick={onClose}>
+            <div className="p-8 pb-0 flex items-center justify-between">
+              {title && (
+                <h3 className="text-2xl font-heading font-bold text-primary">
+                  {title}
+                </h3>
+              )}
+              <button
+                className="p-2 rounded-full hover:bg-surface transition-colors text-text-muted hover:text-primary"
+                onClick={onClose}
+              >
                 <X size={24} />
               </button>
             </div>
-            <div className="modal-content">{children}</div>
+            <div className="p-8">{children}</div>
           </motion.div>
         </div>
       )}

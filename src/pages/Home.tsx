@@ -26,37 +26,37 @@ export const Home: React.FC = () => {
     <Layout>
       {/* Hero Section */}
 
-      <section className="hero-section">
+      <section className="relative min-h-[calc(100vh-80px)] overflow-hidden flex py-16 bg-primary isolate">
         {/* Split Background */}
-        <div className="hero-bg-split">
-          <div className="hero-bg-cell">
+        <div className="absolute inset-0 flex flex-col md:flex-row z-[-1] bg-primary">
+          <div className="flex-1 relative">
             <img
               src={heroDubai}
               alt="Luxury skyline and modern architecture in Dubai, UAE"
-              className="hero-image"
+              className="w-full h-full object-cover"
               loading="eager"
               fetchPriority="high"
             />
 
-            <div className="hero-overlay-gradient-left"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/70 to-primary/30"></div>
           </div>
-          <div className="hero-bg-cell">
+          <div className="flex-1 relative">
             <img
               src={heroBali}
               alt="Serene tropical paradise and nature in Bali, Indonesia"
-              className="hero-image"
+              className="w-full h-full object-cover"
               loading="eager"
               fetchPriority="high"
             />
 
-            <div className="hero-overlay-gradient-right"></div>
+            <div className="absolute inset-0 bg-gradient-to-l from-primary/70 to-primary/30"></div>
           </div>
 
-          <div className="hero-darken-overlay"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
         {/* Content Overlay */}
-        <div className="container hero-content-container">
+        <div className="container mx-auto px-6 relative z-10 flex flex-col justify-center w-full">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -70,7 +70,7 @@ export const Home: React.FC = () => {
                 },
               },
             }}
-            className="hero-text-content"
+            className="max-w-[900px] mx-auto text-center text-white"
           >
             <motion.h1
               variants={{
@@ -81,7 +81,7 @@ export const Home: React.FC = () => {
                   transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] },
                 },
               }}
-              className="hero-title"
+              className="text-[clamp(2.5rem,6vw,5rem)] font-heading font-bold mb-6 leading-[1.1] [text-shadow:0_4px_12px_rgba(0,0,0,0.8)] text-white"
             >
               Relocate to Asia with <br />
               <span className="text-accent">Absolute Certainty</span>
@@ -96,7 +96,7 @@ export const Home: React.FC = () => {
                   transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] },
                 },
               }}
-              className="hero-description"
+              className="text-[clamp(1.1rem,2.5vw,1.4rem)] mb-8 opacity-90 max-w-[700px] mx-auto [text-shadow:0_2px_4px_rgba(0,0,0,0.8)] leading-[1.6]"
             >
               Bespoke relocation services for high-net-worth retirees and global
               professionals seeking lifestyle arbitrage in the UAE, Thailand,
@@ -112,7 +112,7 @@ export const Home: React.FC = () => {
                   transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] },
                 },
               }}
-              className="hero-actions"
+              className="flex gap-4 justify-center flex-wrap"
             >
               <Button variant="accent" size="lg" onClick={openBooking}>
                 Book Relocation Assessment
@@ -120,7 +120,7 @@ export const Home: React.FC = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="btn-hero-outline"
+                className="!text-white !border-white !bg-white/10 backdrop-blur-[4px] hover:!bg-white/20"
                 onClick={() => navigate("/destinations")}
               >
                 Explore Destinations
