@@ -76,7 +76,7 @@ export const DestinationsOverview: React.FC = () => {
               <span>Curated for the Global Elite</span>
             </motion.div>
 
-            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 tracking-tight leading-tight">
+            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 tracking-tight leading-tight text-white">
               Find Your <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50">
                 Perfect Sanctuary
@@ -251,7 +251,7 @@ export const DestinationsOverview: React.FC = () => {
         </div>
 
         <div className="container relative z-10 text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 tracking-tight text-white">
             Still Undecided?
           </h2>
           <p className="text-xl text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto font-light">

@@ -89,7 +89,7 @@ export const DestinationDetail: React.FC = () => {
               ))}
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-heading font-bold mb-8 leading-none tracking-tight">
+            <h1 className="text-6xl md:text-8xl font-heading font-bold mb-8 leading-none tracking-tight text-white">
               {destination.name}
             </h1>
             <p className="text-xl md:text-2xl opacity-90 max-w-2xl mb-10 leading-relaxed font-light border-l-2 border-accent pl-6">
