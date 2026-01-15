@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "../common/Button";
 import { navLinks } from "../../data/navigation";
 
 import { useModals } from "../../context/ModalContext";
+
+import logo from "../../assets/logo.png";
 
 export const Navbar: React.FC = () => {
   const { openBooking } = useModals();
@@ -24,22 +26,21 @@ export const Navbar: React.FC = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-glass py-4 border-b border-gray-100"
+          ? "bg-white/90 backdrop-blur-md shadow-glass py-2 border-b border-gray-100" // Reduced padding from py-4 to py-2
           : "py-4 md:py-6 bg-transparent"
       }`}
     >
       <div className="container flex items-center justify-between">
         <Link
           to="/"
-          className="flex items-center gap-2 font-heading font-bold text-xl md:text-2xl text-primary tracking-tight z-50 relative"
+          className="flex items-center gap-2 z-50 relative"
           onClick={() => setIsOpen(false)}
         >
-          <div className="bg-gradient-to-tr from-accent to-accent-light p-1.5 rounded-lg shadow-lg shadow-accent/20">
-            <Globe size={20} className="text-white md:w-6 md:h-6" />
-          </div>
-          <span className="text-primary">
-            AsiaLife<span className="text-accent">360</span>
-          </span>
+          <img
+            src={logo}
+            alt="AsiaLife360 Logo"
+            className="h-12 md:h-14 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Menu */}

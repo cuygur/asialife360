@@ -1,7 +1,8 @@
 import React from "react";
-import { Globe, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { navLinks, footerContent } from "../../data/navigation";
+import logo from "../../assets/logo.png";
 
 export const Footer: React.FC = () => {
   return (
@@ -10,16 +11,12 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-24 mb-12 md:mb-20">
           {/* Brand Col */}
           <div className="lg:col-span-1">
-            <Link
-              to="/"
-              className="flex items-center gap-2 font-heading font-bold text-2xl text-white mb-6 tracking-tight"
-            >
-              <div className="bg-white/10 p-1.5 rounded-lg border border-white/10">
-                <Globe className="text-accent" size={24} />
-              </div>
-              <span>
-                AsiaLife<span className="text-accent">360</span>
-              </span>
+            <Link to="/" className="flex items-center gap-2 mb-6">
+              <img
+                src={logo}
+                alt="AsiaLife360 Logo"
+                className="h-12 w-auto object-contain bg-white/90 rounded-md p-1"
+              />
             </Link>
             <p className="text-sm leading-relaxed mb-8 text-white/60">
               {footerContent.brandDescription}
