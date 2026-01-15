@@ -22,18 +22,29 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-glass py-2 border-b border-gray-100" // Reduced padding from py-4 to py-2
+        scrolled || isOpen
+          ? "bg-white shadow-glass py-2 border-b border-gray-100" // Reduced padding from py-4 to py-2
           : "py-4 md:py-6 bg-transparent"
       }`}
     >
       <div className="container flex items-center justify-between">
         <Link
           to="/"
-          className="flex items-center gap-2 z-50 relative"
+          className="flex items-center gap-2 z-[110] relative"
           onClick={() => setIsOpen(false)}
         >
           <img
@@ -66,7 +77,7 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Toggle */}
         <div
-          className="md:hidden text-primary cursor-pointer p-2 hover:bg-black/5 rounded-full transition-colors z-50 relative"
+          className="md:hidden text-primary cursor-pointer p-2 hover:bg-black/5 rounded-full transition-colors z-[110] relative"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -80,7 +91,7 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-white/95 backdrop-blur-xl z-40 md:hidden flex flex-col pt-24 pb-8 px-6"
+            className="fixed inset-0 bg-white z-[100] md:hidden flex flex-col pt-24 pb-8 px-6"
           >
             <div className="flex flex-col gap-6 items-center justify-center flex-1">
               {navLinks.map((link, index) => (
