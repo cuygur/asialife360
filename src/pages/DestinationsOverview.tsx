@@ -91,7 +91,7 @@ export const DestinationsOverview: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-bg relative -mt-20 z-20">
+      <section className="py-20 bg-bg relative -mt-20 z-20 overflow-hidden">
         <div className="container mx-auto px-6">
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
