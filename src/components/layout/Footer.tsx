@@ -102,12 +102,18 @@ export const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} AsiaLife360. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <span className="cursor-pointer hover:text-white transition-colors">
+            <Link
+              to="/privacy-policy"
+              className="cursor-pointer hover:text-white transition-colors"
+            >
               Privacy Policy
-            </span>
-            <span className="cursor-pointer hover:text-white transition-colors">
+            </Link>
+            <Link
+              to="/terms-of-service"
+              className="cursor-pointer hover:text-white transition-colors"
+            >
               Terms of Service
-            </span>
+            </Link>
           </div>
         </div>
       </div>

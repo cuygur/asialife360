@@ -25,6 +25,12 @@ const About = lazy(() =>
 const NotFound = lazy(() =>
   import("./pages/NotFound").then((m) => ({ default: m.NotFound }))
 );
+const PrivacyPolicy = lazy(() =>
+  import("./pages/PrivacyPolicy").then((m) => ({ default: m.PrivacyPolicy }))
+);
+const TermsOfService = lazy(() =>
+  import("./pages/TermsOfService").then((m) => ({ default: m.TermsOfService }))
+);
 
 // Loading Component
 const PageLoading = () => (
@@ -46,6 +52,8 @@ function App() {
             <Route path="/destinations" element={<DestinationsOverview />} />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
