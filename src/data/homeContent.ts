@@ -83,6 +83,13 @@ export interface Destination {
   heroImage: string;
   stat: string;
   metrics: DestinationMetrics;
+  detailedStats: {
+    avgCostSingle: string;
+    avgCostFamily: string;
+    weather: string;
+    safetyIndex: string;
+    internetSpeed: string;
+  };
   highlights: string[];
   lifestyle: string;
   costOfLiving: string;
@@ -92,97 +99,126 @@ export const destinationsContent: Destination[] = [
   {
     id: "uae",
     name: "Dubai, UAE",
-    description: "The global hub for tax-free growth and luxury living.",
-    tags: ["0% Tax", "Business Hub", "Luxury"],
+    description:
+      "Why tolerate a system that penalizes your success? Dubai is the ultimate meritocracy. Zero tax on your hard-earned wealth, 100% ownership of your future, and a lifestyle that redefines 'standard'.",
+    tags: ["0% Tax", "Business Hub", "Elite Safety"],
     heroImage: "hero-dubai.png",
-    stat: "0% Income Tax",
+    stat: "Keep 100% of Earnings",
     metrics: {
-      healthcare: "World-Class (Private)",
+      healthcare: "World-Leading (JCI)",
       connectivity: "Global Hub (1.2 Gbps)",
-      safety: "9.8/10",
+      safety: "9.9/10",
       tax: "0%",
     },
+    detailedStats: {
+      avgCostSingle: "$3,500/mo",
+      avgCostFamily: "$6,000/mo",
+      weather: "Sun Guaranteed",
+      safetyIndex: "Unmatched",
+      internetSpeed: "1.2 Gbps",
+    },
     highlights: [
-      "No income or capital gains tax",
-      "World-class infrastructure and safety",
-      "Golden Visa residency for 10 years",
-      "Global travel hub with 2 major airports",
+      "Zero income, capital gains, or corporate tax (zones)",
+      "Safest city in the world for families and assets",
+      "Golden Visa: 10-year residency for investors",
+      "Unrivaled luxury and service infrastructure",
     ],
     lifestyle:
-      "Fast-paced, high-tech, and incredibly diverse. Dubai offers everything from desert adventures to world-leading dining and entertainment.",
-    costOfLiving: "High, but offset by zero taxes and high earning potential.",
+      "This isn't just a place to live; it's a place to ascend. Surround yourself with high-net-worth individuals, seamless digital infrastructure, and safety that is statistically impossible in the West.",
+    costOfLiving: "High, but totally irrelevant when you pay zero tax.",
   },
   {
     id: "indonesia",
     name: "Bali, Indonesia",
-    description: "Tropical paradise meets a thriving nomad community.",
-    tags: ["Wellness", "Community", "Nature"],
+    description:
+      "The 9-to-5 isn't just a job; it's a cage. Bali is the key. Trade the grey skyline for green rice terraces, and stress for serenity. Join a community of creators who have already hacked the system.",
+    tags: ["Wellness", "Creator Hub", "Nature"],
     heroImage: "hero-bali.png",
-    stat: "Top Nomad Spot",
+    stat: "#1 Digital Nomad Hub",
     metrics: {
       healthcare: "International Clinics",
       connectivity: "Nomad Standard (100 Mbps)",
       safety: "8.5/10",
-      tax: "Low/Variable",
+      tax: "Territorial (Low)",
+    },
+    detailedStats: {
+      avgCostSingle: "$1,500/mo",
+      avgCostFamily: "$2,800/mo",
+      weather: "Tropical Warmth",
+      safetyIndex: "Very High",
+      internetSpeed: "100 Mbps+",
     },
     highlights: [
-      "Lower cost of high-end living",
-      "Vibrant creative and startup culture",
-      "Breathtaking landscapes and surf",
-      "Rich spiritual and cultural heritage",
+      "Live like royalty for a fraction of Western costs",
+      "World's most concentrated creative entrepreneur community",
+      "Healing lifestyle with daily yoga, organic food, and nature",
+      "5-Year Nomad Visa options available now",
     ],
     lifestyle:
-      "Balanced, nature-focused, and deeply social. Ideal for creators, spiritual seekers, and remote entrepreneurs looking for community.",
-    costOfLiving:
-      "Very affordable for Western standards, especially for housing and services.",
+      "Mornings start with mindfulness, not commutes. Evenings end with sunsets, not spreadsheets. It's the perfect ecosystem for deep work and deep rest.",
+    costOfLiving: "Extremely Low. Your currency buys you a villa, not a box.",
   },
   {
     id: "thailand",
     name: "Bangkok, Thailand",
-    description: "High-octane city life with world-class amenities.",
-    tags: ["Food", "Healthcare", "Value"],
+    description:
+      "Stop overpaying for a mediocre life. Bangkok offers first-world luxury at third-world prices. Master the art of geo-arbitrage where your currency buys you a penthouse view, not a basement studio.",
+    tags: ["Foodie Heaven", "Medical Hub", "Value"],
     heroImage: "hero-bangkok.png",
     stat: "Best Value Luxury",
     metrics: {
       healthcare: "JCI Accredited (Superior)",
       connectivity: "5G Supercity (1 Gbps)",
       safety: "8.2/10",
-      tax: "Low (LTR Visa)",
+      tax: "17% (Capped)",
+    },
+    detailedStats: {
+      avgCostSingle: "$1,800/mo",
+      avgCostFamily: "$3,200/mo",
+      weather: "Tropical Urban",
+      safetyIndex: "High",
+      internetSpeed: "1 Gbps",
     },
     highlights: [
-      "JCI-accredited world-class healthcare",
-      "Food paradise from street to Michelin",
-      "Ultra-modern condos at incredible value",
-      "New LTR visa for long-term residency",
+      "World's best street food meets Michelin star dining",
+      "Medical tourism capital: US quality at 20% of the cost",
+      "LTR Visa: 10 years of hassle-free residency",
+      "Incredible condo amenities (Pools, Gyms, Coworking) included",
     ],
     lifestyle:
-      "Energetic, convenient, and hospitality-first. Bangkok is a city that never sleeps, offering a perfect blend of tradition and modernity.",
-    costOfLiving:
-      "Moderate. Exceptional value for high-end real estate and medical care.",
+      "A city that pulses with energy. From street food that beats Michelin stars to hospitals that rival the Mayo Clinic for a fraction of the cost. It's efficiency meets chaos in the best way possible.",
+    costOfLiving: "Unbeatable. High-end luxury for middle-class budgets.",
   },
   {
     id: "philippines",
     name: "The Philippines",
-    description: "Warm culture and English-speaking convenience.",
-    tags: ["English", "Beaches", "Hospitality"],
+    description:
+      "Tired of feeling like a stranger? In the Philippines, you're not just a resident; you're family. English is universal, smiles are genuine, and the cost of entry for a luxury life is shockingly low.",
+    tags: ["English Spoken", "Tropical", "Hospitality"],
     heroImage: "hero-philippines.png",
-    stat: "Most Accessible",
+    stat: "Easiest Transition",
     metrics: {
       healthcare: "Premium (Manila/BGC)",
       connectivity: "Improving (Starlink Avail.)",
       safety: "7.8/10",
-      tax: "Moderate",
+      tax: "Territorial",
+    },
+    detailedStats: {
+      avgCostSingle: "$1,200/mo",
+      avgCostFamily: "$2,200/mo",
+      weather: "Tropical Maritime",
+      safetyIndex: "Good",
+      internetSpeed: "50-100 Mbps",
     },
     highlights: [
-      "Widespread English proficiency",
-      "Over 7,000 stunning islands to explore",
-      "Extremely friendly and welcoming locals",
-      "Developing business districts in BGC",
+      "Zero language barrier: English is the official language",
+      "SRRV Visa: One of the world's most accessible retirement options",
+      "7,641 islands offering endless exploration",
+      "Warmest, most welcoming culture in Asia",
     ],
     lifestyle:
-      "Relaxed, ocean-centric, and family-oriented. Great for those who want a westernized communication experience in a tropical setting.",
-    costOfLiving:
-      "Low. One of the best places in Asia for high purchasing power.",
+      "Island life without the isolation. Navigate business and pleasure in English, explore 7,000+ islands, and enjoy a culture that prioritizes connection over transaction.",
+    costOfLiving: "Absurdly Low. Maximize your pension or remote salary.",
   },
 ];
 

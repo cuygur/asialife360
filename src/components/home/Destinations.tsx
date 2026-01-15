@@ -58,9 +58,28 @@ export const Destinations: React.FC = () => {
                   </span>
                 </div>
 
-                <p className="text-text-muted leading-relaxed group-hover:text-text transition-colors">
+                <p className="text-text-muted leading-relaxed group-hover:text-text transition-colors mb-6 text-sm">
                   {dest.description}
                 </p>
+
+                <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border/50">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-text-muted">
+                      Tax
+                    </span>
+                    <p className="font-bold text-primary group-hover:text-accent transition-colors">
+                      {dest.metrics.tax}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-text-muted">
+                      Safety
+                    </span>
+                    <p className="font-bold text-primary group-hover:text-accent transition-colors">
+                      {dest.detailedStats.safetyIndex}
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <Link

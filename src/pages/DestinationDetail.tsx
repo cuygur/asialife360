@@ -10,6 +10,10 @@ import {
   TrendingUp,
   DollarSign,
   ArrowLeft,
+  Sun,
+  Shield,
+  Wifi,
+  Home,
 } from "lucide-react";
 import { useModals } from "../context/ModalContext";
 
@@ -147,36 +151,118 @@ export const DestinationDetail: React.FC = () => {
               </div>
 
               {/* Detailed Metrics */}
-              <h3 className="text-2xl font-bold mb-6 text-primary flex items-center gap-3">
+              {/* Detailed Metrics - The "Wall of Logic" */}
+              <h3 className="text-2xl font-bold mb-8 text-primary flex items-center gap-3">
                 <div className="w-8 h-1 rounded-full bg-accent"></div>
-                Living & Lifestyle Data
+                The Data Behind the Dream
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Reusing logic to show expanded metrics clearly */}
-                <div className="p-6 bg-white rounded-2xl border border-border shadow-sm">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="p-2 bg-surface rounded-lg text-accent">
-                      <TrendingUp size={24} />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+                {/* Cost - Single */}
+                <div className="p-5 bg-white rounded-2xl border border-border/60 hover:border-accent/40 hover:shadow-lg transition-all group">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 bg-surface rounded-lg text-accent group-hover:bg-accent group-hover:text-primary transition-colors">
+                      <DollarSign size={20} />
                     </div>
-                    <h4 className="font-bold text-primary">
-                      Healthcare Standard
-                    </h4>
+                    <span className="text-xs font-bold uppercase tracking-wider text-text-muted">
+                      Cost (Single)
+                    </span>
                   </div>
-                  <p className="text-text-muted text-sm px-1">
+                  <p className="text-xl font-bold text-primary">
+                    {destination.detailedStats.avgCostSingle}
+                  </p>
+                </div>
+
+                {/* Cost - Family */}
+                <div className="p-5 bg-white rounded-2xl border border-border/60 hover:border-accent/40 hover:shadow-lg transition-all group">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 bg-surface rounded-lg text-accent group-hover:bg-accent group-hover:text-primary transition-colors">
+                      <Home size={20} />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-text-muted">
+                      Cost (Family)
+                    </span>
+                  </div>
+                  <p className="text-xl font-bold text-primary">
+                    {destination.detailedStats.avgCostFamily}
+                  </p>
+                </div>
+
+                {/* Safety */}
+                <div className="p-5 bg-white rounded-2xl border border-border/60 hover:border-accent/40 hover:shadow-lg transition-all group">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 bg-surface rounded-lg text-accent group-hover:bg-accent group-hover:text-primary transition-colors">
+                      <Shield size={20} />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-text-muted">
+                      Safety Score
+                    </span>
+                  </div>
+                  <p className="text-xl font-bold text-primary">
+                    {destination.detailedStats.safetyIndex}
+                  </p>
+                </div>
+
+                {/* Weather */}
+                <div className="p-5 bg-white rounded-2xl border border-border/60 hover:border-accent/40 hover:shadow-lg transition-all group">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 bg-surface rounded-lg text-accent group-hover:bg-accent group-hover:text-primary transition-colors">
+                      <Sun size={20} />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-text-muted">
+                      Climate
+                    </span>
+                  </div>
+                  <p className="text-xl font-bold text-primary">
+                    {destination.detailedStats.weather}
+                  </p>
+                </div>
+
+                {/* Internet */}
+                <div className="p-5 bg-white rounded-2xl border border-border/60 hover:border-accent/40 hover:shadow-lg transition-all group">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 bg-surface rounded-lg text-accent group-hover:bg-accent group-hover:text-primary transition-colors">
+                      <Wifi size={20} />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-text-muted">
+                      Connectivity
+                    </span>
+                  </div>
+                  <p className="text-xl font-bold text-primary">
+                    {destination.detailedStats.internetSpeed}
+                  </p>
+                </div>
+
+                {/* Healthcare */}
+                <div className="p-5 bg-white rounded-2xl border border-border/60 hover:border-accent/40 hover:shadow-lg transition-all group">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 bg-surface rounded-lg text-accent group-hover:bg-accent group-hover:text-primary transition-colors">
+                      <TrendingUp size={20} />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-text-muted">
+                      Healthcare
+                    </span>
+                  </div>
+                  <p className="text-xl font-bold text-primary">
                     {destination.metrics.healthcare}
                   </p>
                 </div>
-                <div className="p-6 bg-white rounded-2xl border border-border shadow-sm">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="p-2 bg-surface rounded-lg text-accent">
-                      <TrendingUp size={24} /> {/* Icon placeholder reuse */}
-                    </div>
-                    <h4 className="font-bold text-primary">
-                      Digital Connectivity
-                    </h4>
-                  </div>
-                  <p className="text-text-muted text-sm px-1">
-                    {destination.metrics.connectivity}
+              </div>
+
+              {/* Authority Anchor */}
+              <div className="p-6 bg-surface/50 rounded-xl border border-accent/20 flex items-start gap-4">
+                <div className="mt-1">
+                  <Shield className="text-accent" size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-primary mb-1">
+                    Verified by AsiaLife360 Intelligence
+                  </h4>
+                  <p className="text-sm text-text-muted leading-relaxed">
+                    Data is updated monthly by our local teams on the ground in{" "}
+                    {destination.name.split(",")[0]}. We don't rely on generic
+                    indexes; we verify rental prices, internet speeds, and
+                    safety reports personally.
                   </p>
                 </div>
               </div>
