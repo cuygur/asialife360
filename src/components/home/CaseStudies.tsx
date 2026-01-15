@@ -3,12 +3,15 @@ import { motion } from "framer-motion";
 import { Quote, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../common/Button";
+import millerFamilyImg from "../../assets/testimonials/miller-family.png";
+import sarahJImg from "../../assets/testimonials/sarah-j.png";
 
 const caseStudies = [
   {
     name: "The Miller Family",
     type: "Retiree",
     destination: "Thailand",
+    image: millerFamilyImg,
     challenge:
       "Overwhelmed by retirement visa requirements and finding quality healthcare proximity.",
     outcome:
@@ -20,6 +23,7 @@ const caseStudies = [
     name: "Sarah J.",
     type: "Remote Professional",
     destination: "UAE",
+    image: sarahJImg,
     challenge:
       "Needed 0% tax residency and a high-speed business environment to scale her SaaS company.",
     outcome:
@@ -63,8 +67,12 @@ export const CaseStudies: React.FC = () => {
 
               <div className="flex justify-between items-center mb-8">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg">
-                    {study.name.charAt(0)}
+                  <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/10 bg-primary/5">
+                    <img
+                      src={study.image}
+                      alt={study.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-primary leading-none mb-1">
