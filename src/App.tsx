@@ -22,6 +22,9 @@ const Services = lazy(() =>
 const About = lazy(() =>
   import("./pages/About").then((m) => ({ default: m.About }))
 );
+const SuccessStories = lazy(() =>
+  import("./pages/SuccessStories").then((m) => ({ default: m.SuccessStories }))
+);
 const NotFound = lazy(() =>
   import("./pages/NotFound").then((m) => ({ default: m.NotFound }))
 );
@@ -50,6 +53,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/destinations/:id" element={<DestinationDetail />} />
             <Route path="/destinations" element={<DestinationsOverview />} />
+            <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />

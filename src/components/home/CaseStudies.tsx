@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Quote, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "../common/Button";
 
 const caseStudies = [
@@ -112,17 +113,19 @@ export const CaseStudies: React.FC = () => {
         </div>
 
         <div className="text-center mt-16">
-          <Button
-            variant="outline"
-            size="lg"
-            className="group border-border hover:border-accent hover:text-accent bg-white/50 backdrop-blur-sm"
-          >
-            View All Success Stories{" "}
-            <ArrowRight
-              size={20}
-              className="ml-2 group-hover:translate-x-1 transition-transform"
-            />
-          </Button>
+          <Link to="/success-stories">
+            <Button
+              variant="outline"
+              size="lg"
+              className="group border-border hover:border-accent hover:text-accent bg-white/50 backdrop-blur-sm"
+            >
+              View the Wall of Proof{" "}
+              <ArrowRight
+                size={20}
+                className="ml-2 group-hover:translate-x-1 transition-transform"
+              />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
