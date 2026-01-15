@@ -163,7 +163,7 @@ export const DestinationDetail: React.FC = () => {
                     </h4>
                   </div>
                   <p className="text-text-muted text-sm px-1">
-                    {(destination as any).metrics.healthcare}
+                    {destination.metrics.healthcare}
                   </p>
                 </div>
                 <div className="p-6 bg-white rounded-2xl border border-border shadow-sm">
@@ -176,7 +176,7 @@ export const DestinationDetail: React.FC = () => {
                     </h4>
                   </div>
                   <p className="text-text-muted text-sm px-1">
-                    {(destination as any).metrics.connectivity}
+                    {destination.metrics.connectivity}
                   </p>
                 </div>
               </div>

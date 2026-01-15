@@ -161,7 +161,7 @@ export const DestinationsOverview: React.FC = () => {
                           Healthcare
                         </p>
                         <p className="text-sm font-bold text-primary">
-                          {(dest as any).metrics.healthcare}
+                          {dest.metrics.healthcare}
                         </p>
                       </div>
                     </div>
@@ -174,7 +174,7 @@ export const DestinationsOverview: React.FC = () => {
                           Connectivity
                         </p>
                         <p className="text-sm font-bold text-primary">
-                          {(dest as any).metrics.connectivity}
+                          {dest.metrics.connectivity}
                         </p>
                       </div>
                     </div>
@@ -187,7 +187,7 @@ export const DestinationsOverview: React.FC = () => {
                           Safety
                         </p>
                         <p className="text-sm font-bold text-primary">
-                          {(dest as any).metrics.safety}
+                          {dest.metrics.safety}
                         </p>
                       </div>
                     </div>
@@ -200,7 +200,7 @@ export const DestinationsOverview: React.FC = () => {
                           Tax Efficiency
                         </p>
                         <p className="text-sm font-bold text-primary">
-                          {(dest as any).metrics.tax}
+                          {dest.metrics.tax}
                         </p>
                       </div>
                     </div>

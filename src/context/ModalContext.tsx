@@ -34,6 +34,7 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useModals = () => {
   const context = useContext(ModalContext);
   if (context === undefined) {

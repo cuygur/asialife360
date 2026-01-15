@@ -68,7 +68,27 @@ export const segmentationContent = {
   ],
 };
 
-export const destinationsContent = [
+export interface DestinationMetrics {
+  healthcare: string;
+  connectivity: string;
+  safety: string;
+  tax: string;
+}
+
+export interface Destination {
+  id: string;
+  name: string;
+  description: string;
+  tags: string[];
+  heroImage: string;
+  stat: string;
+  metrics: DestinationMetrics;
+  highlights: string[];
+  lifestyle: string;
+  costOfLiving: string;
+}
+
+export const destinationsContent: Destination[] = [
   {
     id: "uae",
     name: "Dubai, UAE",
