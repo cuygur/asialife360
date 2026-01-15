@@ -1,3 +1,9 @@
+import julianImg from "../assets/stories/julian.png";
+import marcoImg from "../assets/stories/marco.png";
+import hendersonImg from "../assets/stories/henderson.png";
+import leoImg from "../assets/stories/leo.png";
+import davidImg from "../assets/stories/david.png";
+
 export interface SuccessStory {
   title: string;
   profile: string;
@@ -6,6 +12,7 @@ export interface SuccessStory {
   tags: string[];
   metrics: string;
   type: "Tax" | "Lifestyle" | "Speed" | "Security" | "Family";
+  image: string;
 }
 
 export const successStories: SuccessStory[] = [
@@ -21,6 +28,7 @@ export const successStories: SuccessStory[] = [
       "Julian’s residency was secured in 22 days. **The Result: By moving his tax domicile to Dubai, Julian reclaimed $240,000 in personal income annually. More importantly, the corporate tax savings allowed him to double his engineering team without raising additional capital, leading to a 40% MRR increase within his first eight months in the desert.**",
     tags: ["0% Corporate Tax", "SaaS Scaling", "Golden Visa"],
     metrics: "$240k saved/year",
+    image: julianImg,
   },
   {
     type: "Lifestyle",
@@ -34,6 +42,7 @@ export const successStories: SuccessStory[] = [
       "Marco relocated in 45 days with a fully compliant tax package. **The Result: His monthly burn dropped by 70% while his lifestyle quality increased 10x. He now spends his mornings surfing and his afternoons trading from a private managed estate, fully plugged into an elite, invite-only network of tech founders and investors.**",
     tags: ["Investor KITAS", "Crypto-Friendly", "Luxury Real Estate"],
     metrics: "70% burn reduction",
+    image: marcoImg,
   },
   {
     type: "Security",
@@ -47,6 +56,7 @@ export const successStories: SuccessStory[] = [
       "The family moved into a high-floor luxury condo in Bangkok within 4 weeks. **The Result: The children are now thriving in a school ranked in the top 1% globally. For the first time in years, the parents enjoy evening walks through the city and 3 AM airport runs with 'absolute certainty' in their physical security and a renewed sense of freedom.**",
     tags: ["Elite Schooling", "Family Concierge", "Safe Haven"],
     metrics: "100% Security Certainty",
+    image: hendersonImg,
   },
   {
     type: "Speed",
@@ -60,6 +70,7 @@ export const successStories: SuccessStory[] = [
       "Leo’s overhead dropped from $8,000 to $1,850 per month. **The Result: By delegating all domestic chores to his new team, Leo reclaimed 25 hours a week of 'deep work' time. He used that time to pivot from freelance work to a high-ticket agency model, effectively doubling his net revenue within 12 months while living in a paradise most only dream of.**",
     tags: ["Geographic Arbitrage", "Domestic Staff", "1 Gbps Fiber"],
     metrics: "25hrs/week reclaimed",
+    image: leoImg,
   },
   {
     type: "Family",
@@ -73,5 +84,6 @@ export const successStories: SuccessStory[] = [
       "David transitioned his tax domicile 10 months before the sale closed. **The Result: By legally repositioning his residency, David preserved over $5.2M in wealth that would have otherwise been lost to CGT. We then transitioned his file to our Family Office partners, ensuring that his 'new life' was supported by a robust wealth preservation structure from Day 1.**",
     tags: ["Exit Strategy", "Tax Residency", "Wealth Preservation"],
     metrics: "$5.2M Tax Preserved",
+    image: davidImg,
   },
 ];

@@ -60,13 +60,13 @@ export const SuccessStories: React.FC = () => {
             </p>
             <div className="flex justify-center gap-6">
               <div className="flex -space-x-4">
-                {[1, 2, 3, 4, 5].map((i) => (
+                {successStories.map((story, i) => (
                   <div
                     key={i}
                     className="w-12 h-12 rounded-full border-2 border-primary bg-surface flex items-center justify-center text-primary font-bold overflow-hidden"
                   >
                     <img
-                      src={`https://i.pravatar.cc/150?u=${i + 10}`}
+                      src={story.image}
                       alt="Client"
                       className="w-full h-full object-cover"
                     />
@@ -160,9 +160,19 @@ export const SuccessStories: React.FC = () => {
 
                   {/* Right Column: The Deep Dive */}
                   <div className="lg:col-span-7">
-                    <div className="relative">
+                    <div className="relative group">
+                      {/* Image Container */}
+                      <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl mb-[-3rem] z-0 mx-4 border-4 border-white">
+                        <img
+                          src={story.image}
+                          alt={story.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-60" />
+                      </div>
+
                       {/* Glass Container */}
-                      <div className="bg-white/80 backdrop-blur-xl p-8 md:p-16 rounded-[3rem] shadow-glass border border-white relative z-10 overflow-hidden">
+                      <div className="bg-white/90 backdrop-blur-xl p-8 md:p-12 rounded-[3rem] shadow-glass border border-white relative z-10 overflow-hidden">
                         {/* Decorative Quote Mark */}
                         <Quote
                           size={120}
