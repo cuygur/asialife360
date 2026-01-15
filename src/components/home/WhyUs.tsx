@@ -16,7 +16,7 @@ export const WhyUs: React.FC = () => {
           <div className="text-accent font-bold uppercase tracking-widest text-sm mb-4">
             The Advantage
           </div>
-          <h2 className="text-4xl font-heading font-bold mb-4 text-primary">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-primary">
             {whyUsContent.title}
           </h2>
           <p className="text-lg text-text-muted leading-relaxed">

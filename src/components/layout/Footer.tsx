@@ -5,9 +5,9 @@ import { navLinks, footerContent } from "../../data/navigation";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-primary pt-24 pb-12 text-white/70 border-t border-white/5 relative bg-gradient-to-b from-[#0F172A] to-[#020617]">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24 mb-20">
+    <footer className="bg-primary pt-12 md:pt-24 pb-8 md:pb-12 text-white/70 border-t border-white/5 relative bg-gradient-to-b from-[#0F172A] to-[#020617]">
+      <div className="container relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-24 mb-12 md:mb-20">
           {/* Brand Col */}
           <div className="lg:col-span-1">
             <Link

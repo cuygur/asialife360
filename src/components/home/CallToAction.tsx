@@ -13,7 +13,7 @@ export const CallToAction: React.FC<CallToActionProps> = ({
   onDownloadClick,
 }) => {
   return (
-    <section className="py-24 bg-primary text-white overflow-hidden relative">
+    <section className="py-16 md:py-24 bg-primary text-white overflow-hidden relative">
       {/* Background Accent */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-accent blur-[150px] opacity-20 translate-x-1/2 -translate-y-1/2"></div>
 

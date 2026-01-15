@@ -19,7 +19,7 @@ export const Destinations: React.FC = () => {
           <div className="text-accent font-bold uppercase tracking-widest text-sm mb-4">
             Global Reach
           </div>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-primary">
+          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-primary">
             Choose Your New Home
           </h2>
           <p className="text-lg text-text-muted leading-relaxed">

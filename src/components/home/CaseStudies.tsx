@@ -39,7 +39,7 @@ export const CaseStudies: React.FC = () => {
           <div className="text-accent font-bold uppercase tracking-widest text-sm mb-4">
             Success Stories
           </div>
-          <h2 className="text-4xl font-heading font-bold mb-4 text-primary">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-primary">
             Real Transformations
           </h2>
           <p className="text-lg text-text-muted leading-relaxed">
@@ -52,7 +52,7 @@ export const CaseStudies: React.FC = () => {
           {caseStudies.map((study, index) => (
             <motion.div
               key={index}
-              className="p-10 pl-12 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/60 shadow-glass flex flex-col h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-premium relative overflow-hidden group"
+              className="p-6 md:p-10 md:pl-12 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/60 shadow-glass flex flex-col h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-premium relative overflow-hidden group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

@@ -20,9 +20,9 @@ const stats = [
 export const TrustBar: React.FC = () => {
   return (
     <section className="py-12 border-b border-white/50 bg-surface/50 relative z-20 -mt-10 mx-4 md:mx-10 rounded-2xl shadow-glass backdrop-blur-md border border-white/40">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <motion.div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8 items-center divide-x divide-primary/5"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-center md:divide-x divide-primary/5"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

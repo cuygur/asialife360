@@ -47,13 +47,13 @@ export const About: React.FC = () => {
               <div className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent font-bold text-sm mb-6 uppercase tracking-widest">
                 Our Origin Story
               </div>
-              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-8 text-primary leading-tight">
+              <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 md:mb-8 text-primary leading-tight">
                 The Vision Behind <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-accent">
                   AsiaLife360
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-text-muted mb-10 leading-relaxed font-light">
+              <p className="text-lg md:text-2xl text-text-muted mb-8 md:mb-10 leading-relaxed font-light">
                 Founded by former expats who navigated the complexities of
                 international relocation firsthand, AsiaLife360 was built to be
                 the agency we wish we had.
@@ -78,20 +78,20 @@ export const About: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-12 pt-12 border-t border-border flex items-center gap-12">
+              <div className="mt-10 md:mt-12 pt-10 md:pt-12 border-t border-border flex flex-wrap gap-8 md:gap-12">
                 <div>
-                  <span className="block text-4xl font-bold text-primary mb-1">
+                  <span className="block text-3xl md:text-4xl font-bold text-primary mb-1">
                     500+
                   </span>
-                  <span className="text-sm font-semibold text-text-muted uppercase tracking-wider">
+                  <span className="text-xs md:text-sm font-semibold text-text-muted uppercase tracking-wider">
                     Families Rehomed
                   </span>
                 </div>
                 <div>
-                  <span className="block text-4xl font-bold text-primary mb-1">
+                  <span className="block text-3xl md:text-4xl font-bold text-primary mb-1">
                     100%
                   </span>
-                  <span className="text-sm font-semibold text-text-muted uppercase tracking-wider">
+                  <span className="text-xs md:text-sm font-semibold text-text-muted uppercase tracking-wider">
                     Visa Success Rate
                   </span>
                 </div>
@@ -184,10 +184,10 @@ export const About: React.FC = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8 text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-6xl font-heading font-bold mb-6 md:mb-8 text-white tracking-tight">
               Your Journey Starts with a Conversation
             </h2>
-            <p className="text-white/70 text-xl mb-12 leading-relaxed max-w-2xl mx-auto font-light">
+            <p className="text-white/70 text-lg md:text-xl mb-10 md:mb-12 leading-relaxed max-w-2xl mx-auto font-light">
               We don't take on every client. We only work with those where we
               are 100% certain we can deliver a life-changing upgrade.
             </p>

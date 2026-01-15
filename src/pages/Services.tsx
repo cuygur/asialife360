@@ -72,11 +72,11 @@ export const Services: React.FC = () => {
             <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-accent font-bold text-sm mb-8 uppercase tracking-widest backdrop-blur-md">
               End-to-End Relocation
             </div>
-            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 leading-tight tracking-tight text-white">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 md:mb-8 leading-tight tracking-tight text-white">
               The Effortless <br />{" "}
               <span className="text-white">Relocation Engine</span>
             </h1>
-            <p className="text-xl text-white/70 leading-relaxed max-w-2xl mx-auto font-light">
+            <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl mx-auto font-light">
               Moving your life to Asia should feel like an upgrade, not a battle
               with bureaucracy. Our white-glove services replace anxiety with
               absolute legal and logistical certainty.
@@ -139,7 +139,7 @@ export const Services: React.FC = () => {
             </div>
 
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">
+              <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-white">
                 One Agency. One Fee. Total Peace.
               </h2>
               <div className="w-24 h-1 bg-accent mx-auto mb-8 rounded-full"></div>
@@ -152,7 +152,7 @@ export const Services: React.FC = () => {
                 variant="accent"
                 size="lg"
                 onClick={openBooking}
-                className="min-w-[280px] py-5 text-lg shadow-xl shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-1"
+                className="min-w-[260px] md:min-w-[280px] py-4 md:py-5 text-base md:text-lg shadow-xl shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-1"
               >
                 Discuss Your Full Package
               </Button>

@@ -111,7 +111,7 @@ export const Home: React.FC = () => {
                   transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
-              className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-8 leading-[1.05] tracking-tight text-white drop-shadow-lg"
+              className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-bold mb-6 md:mb-8 leading-[1.1] md:leading-[1.05] tracking-tight text-white drop-shadow-lg"
             >
               Relocate to Asia with <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-light to-accent">
@@ -144,20 +144,20 @@ export const Home: React.FC = () => {
                   transition: { duration: 0.8 },
                 },
               }}
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full sm:w-auto"
             >
               <Button
                 variant="accent"
                 size="lg"
                 onClick={openBooking}
-                className="min-w-[200px] shadow-lg shadow-accent/20"
+                className="w-full sm:w-auto min-w-[200px] shadow-lg shadow-accent/20"
               >
                 Start Your Journey
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="min-w-[200px] !text-white !border-white/30 !bg-white/5 backdrop-blur-md hover:!bg-white/15 hover:!border-white/50 transition-all"
+                className="w-full sm:w-auto min-w-[200px] !text-white !border-white/30 !bg-white/5 backdrop-blur-md hover:!bg-white/15 hover:!border-white/50 transition-all"
                 onClick={() => navigate("/destinations")}
               >
                 Explore Destinations

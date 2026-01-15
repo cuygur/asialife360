@@ -24,17 +24,18 @@ export const Navbar: React.FC = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-glass py-4 border-b border-white/20"
-          : "py-6 bg-transparent"
+          ? "bg-white/90 backdrop-blur-md shadow-glass py-4 border-b border-gray-100"
+          : "py-4 md:py-6 bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container flex items-center justify-between">
         <Link
           to="/"
-          className="flex items-center gap-2 font-heading font-bold text-2xl text-primary tracking-tight"
+          className="flex items-center gap-2 font-heading font-bold text-xl md:text-2xl text-primary tracking-tight z-50 relative"
+          onClick={() => setIsOpen(false)}
         >
           <div className="bg-gradient-to-tr from-accent to-accent-light p-1.5 rounded-lg shadow-lg shadow-accent/20">
-            <Globe size={24} className="text-white" />
+            <Globe size={20} className="text-white md:w-6 md:h-6" />
           </div>
           <span className="text-primary">
             AsiaLife<span className="text-accent">360</span>
@@ -64,47 +65,66 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Toggle */}
         <div
-          className="md:hidden text-primary cursor-pointer p-2 hover:bg-black/5 rounded-full transition-colors"
+          className="md:hidden text-primary cursor-pointer p-2 hover:bg-black/5 rounded-full transition-colors z-50 relative"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-xl border-b border-border absolute top-full left-0 right-0 shadow-xl overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-white/95 backdrop-blur-xl z-40 md:hidden flex flex-col pt-24 pb-8 px-6"
           >
-            <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <Link
+            <div className="flex flex-col gap-6 items-center justify-center flex-1">
+              {navLinks.map((link, index) => (
+                <motion.div
                   key={link.href}
-                  to={link.href}
-                  className="text-xl font-heading font-semibold text-primary hover:text-accent transition-colors flex justify-between items-center group"
-                  onClick={() => setIsOpen(false)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="w-full text-center"
                 >
-                  {link.label}
-                  <span className="w-2 h-2 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
+                  <Link
+                    to={link.href}
+                    className="text-3xl font-heading font-bold text-primary hover:text-accent transition-colors block py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
-              <div className="pt-4 border-t border-dashed border-border">
-                <Button
-                  variant="primary"
-                  className="w-full justify-center"
-                  onClick={() => {
-                    setIsOpen(false);
-                    openBooking();
-                  }}
-                >
-                  Book Discovery Call
-                </Button>
-              </div>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="w-full flex flex-col gap-4"
+            >
+              <Button
+                variant="primary"
+                className="w-full justify-center text-lg py-6"
+                onClick={() => {
+                  setIsOpen(false);
+                  openBooking();
+                }}
+              >
+                Book Discovery Call
+              </Button>
+
+              <div className="flex justify-center gap-6 mt-4 opacity-50">
+                {/* Optional: Add social icons or simple text here if needed */}
+                <span className="text-xs uppercase tracking-widest">
+                  Premium Relocation Services
+                </span>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

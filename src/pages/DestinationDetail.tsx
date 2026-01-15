@@ -89,10 +89,10 @@ export const DestinationDetail: React.FC = () => {
               ))}
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-heading font-bold mb-8 leading-none tracking-tight text-white">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-bold mb-6 md:mb-8 leading-none tracking-tight text-white">
               {destination.name}
             </h1>
-            <p className="text-xl md:text-2xl opacity-90 max-w-2xl mb-10 leading-relaxed font-light border-l-2 border-accent pl-6">
+            <p className="text-lg md:text-2xl opacity-90 max-w-2xl mb-8 md:mb-10 leading-relaxed font-light border-l-2 border-accent pl-6">
               {destination.description}
             </p>
             <div className="flex gap-4">
@@ -100,7 +100,7 @@ export const DestinationDetail: React.FC = () => {
                 variant="accent"
                 size="lg"
                 onClick={openBooking}
-                className="px-8 py-4 text-lg shadow-xl shadow-accent/20 hover:shadow-accent/40"
+                className="px-6 py-3 md:px-8 md:py-4 text-base md:text-lg shadow-xl shadow-accent/20 hover:shadow-accent/40"
               >
                 Speak to our {destination.name.split(",")[0]} Expert
               </Button>
@@ -109,7 +109,7 @@ export const DestinationDetail: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-bg relative">
+      <section className="py-16 md:py-24 bg-bg relative">
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
             {/* Main Content */}
@@ -119,7 +119,7 @@ export const DestinationDetail: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-heading font-bold mb-8 text-primary">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 md:mb-8 text-primary">
                 Why Relocate to {destination.name}?
               </h2>
               <p className="text-xl text-text-muted leading-relaxed mb-12 whitespace-pre-wrap font-light">
