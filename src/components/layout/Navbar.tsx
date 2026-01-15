@@ -7,7 +7,7 @@ import { navLinks } from "../../data/navigation";
 
 import { useModals } from "../../context/ModalContext";
 
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.svg";
 
 export const Navbar: React.FC = () => {
   const { openBooking } = useModals();
