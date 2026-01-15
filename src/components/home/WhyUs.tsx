@@ -24,7 +24,7 @@ export const WhyUs: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="overflow-hidden rounded-2xl shadow-premium border border-border bg-white">
+        <div className="hidden md:block overflow-hidden rounded-2xl shadow-premium border border-border bg-white">
           <table className="w-full border-collapse min-w-[700px]">
             <thead>
               <motion.tr className="bg-primary text-white">
@@ -83,6 +83,61 @@ export const WhyUs: React.FC = () => {
               ))}
             </motion.tbody>
           </table>
+        </div>
+
+        {/* Mobile View */}
+        <div className="md:hidden space-y-4">
+          {whyUsContent.comparison.map((row, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white rounded-xl shadow-sm border border-border overflow-hidden"
+            >
+              <div className="bg-surface p-4 border-b border-border">
+                <h3 className="font-heading font-bold text-primary text-lg">
+                  {row.feature}
+                </h3>
+              </div>
+              <div className="p-5 space-y-4">
+                {/* DIY Section */}
+                <div className="flex gap-3 items-start opacity-70">
+                  <div className="mt-1 min-w-[18px]">
+                    <X size={18} className="text-red-400" />
+                  </div>
+                  <div>
+                    <span className="text-xs uppercase tracking-wider font-semibold text-text-muted block mb-1">
+                      The Hard Way
+                    </span>
+                    <span className="text-sm text-text-muted leading-relaxed">
+                      {row.diy}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="h-px bg-border/50 w-full" />
+
+                {/* Us Section */}
+                <div className="flex gap-3 items-start">
+                  <div className="mt-1 min-w-[18px]">
+                    <div className="bg-accent/10 rounded-full p-0.5">
+                      <Check size={14} className="text-accent" />
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-xs uppercase tracking-wider font-bold text-accent block mb-1">
+                      AsiaLife360
+                    </span>
+                    <span className="text-sm font-medium text-primary leading-relaxed">
+                      {row.us}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
