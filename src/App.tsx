@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ModalProvider } from "./context/ModalContext";
+import { ScrollToTop } from "./components/layout/ScrollToTop";
 
 // Lazy Load Pages
 const Home = lazy(() =>
@@ -47,6 +48,7 @@ const PageLoading = () => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <ModalProvider>
         <Suspense fallback={<PageLoading />}>
           <Routes>
