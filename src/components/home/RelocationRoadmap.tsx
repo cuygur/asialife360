@@ -71,7 +71,7 @@ export const RelocationRoadmap: React.FC = () => {
             >
               <div className="flex flex-col items-center text-center mb-6">
                 <div className="relative mb-6">
-                  <span className="font-heading text-6xl font-bold text-slate-300/50 absolute -top-4 left-1/2 -translate-x-1/2 z-0 scale-150 pointer-events-none select-none group-hover:text-accent/20 transition-colors">
+                  <span className="font-heading text-6xl font-bold text-slate-300 absolute -top-4 left-1/2 -translate-x-1/2 z-0 scale-150 pointer-events-none select-none group-hover:text-accent/40 transition-colors">
                     {phase.phase}
                   </span>
                   <div className="bg-white p-4 rounded-2xl shadow-lg relative z-10 border border-border group-hover:border-accent/30 transition-colors">
